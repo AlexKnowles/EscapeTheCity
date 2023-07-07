@@ -13,6 +13,9 @@ public class PlayerControl : MonoBehaviour
     private bool _braking = false;
     private float _steer = 0.0f;
 
+    public GameObject FollowCamera;
+    private Transform _followCameraTransform;
+
     public float AccelerationFactor = 20f;
 
     public float BrakingFactor = -40f;
@@ -25,6 +28,11 @@ public class PlayerControl : MonoBehaviour
     void Start()
     {
         _rigidbody = GetComponent<Rigidbody>();
+
+        if (FollowCamera != null)
+        {
+            _followCameraTransform = FollowCamera.GetComponent<Transform>();
+        }
     }
 
     public void OnAccelerate(InputValue value)
@@ -78,6 +86,11 @@ public class PlayerControl : MonoBehaviour
             {
                 _rigidbody.rotation = _rigidbody.rotation * Quaternion.AngleAxis(TurningSpeed * deltaTime, Vector3.up);
             }
+        }
+
+        if (_followCameraTransform != null)
+        {
+            _followCameraTransform.position = _rigidbody.position;
         }
     }
 }
