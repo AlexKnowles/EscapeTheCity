@@ -13,6 +13,8 @@ public class PlayerControl : MonoBehaviour
     private bool _braking = false;
     private float _steer = 0.0f;
 
+    private float _turnAmount = 0.0f;
+
     public GameObject FollowCamera;
     private Transform _followCameraTransform;
 
@@ -73,19 +75,26 @@ public class PlayerControl : MonoBehaviour
                 _rigidbody.velocity = new Vector3(0, 0, 0);
             }
         }
-
-        var movingForward = _rigidbody.velocity.magnitude > 0 && Vector3.Dot(_rigidbody.velocity.normalized, transform.forward) > 0;
+        var forwardMovementAmount = Vector3.Dot(_rigidbody.velocity.normalized, transform.forward);
+        var movingForward = _rigidbody.velocity.magnitude > 0 && forwardMovementAmount > 0;
         if (movingForward)
         {
             if (_steer == _steerLeft)
             {
-                _rigidbody.rotation = _rigidbody.rotation * Quaternion.AngleAxis(-TurningSpeed * deltaTime, Vector3.up);
-            }
-
-            if (_steer == _steerRight)
+                _turnAmount -= TurningSpeed * 0.5f * forwardMovementAmount;
+            } else if (_steer == _steerRight)
             {
-                _rigidbody.rotation = _rigidbody.rotation * Quaternion.AngleAxis(TurningSpeed * deltaTime, Vector3.up);
+                _turnAmount += TurningSpeed * 0.5f * forwardMovementAmount;
             }
+            else
+            {
+                _turnAmount = 0;
+            }
+            if (Mathf.Abs(_turnAmount) > TurningSpeed)
+            {
+                _turnAmount = Mathf.Sign(_turnAmount) * TurningSpeed;
+            }
+            _rigidbody.rotation = _rigidbody.rotation * Quaternion.AngleAxis(_turnAmount * deltaTime, Vector3.up);
         }
 
         if (_followCameraTransform != null)
