@@ -11,10 +11,15 @@ public class PlayerControl : MonoBehaviour
 
     private bool _accelerating = false;
     private bool _braking = false;
+    private float _steer = 0.0f;
 
-    public float AccelerationFactor = 0.01f;
+    public float AccelerationFactor = 20f;
 
-    public float BrakingFactor = -0.05f;
+    public float BrakingFactor = -40f;
+
+    public float TurningSpeed = 90f;
+
+    public float DriftFactor = 10f;
 
     // Start is called before the first frame update
     void Start()
@@ -32,20 +37,46 @@ public class PlayerControl : MonoBehaviour
         _braking = value.isPressed;
     }
 
+    private const float _steerLeft = -1;
+    private const float _steerRight = 1;
+
+    public void OnSteer(InputValue value)
+    {
+        // right is 1, left is -1
+        _steer = value.Get<float>();
+    }
+
     // Update is called once per frame
     void Update()
     {
+
+        float deltaTime = Time.deltaTime;
+
         if (_accelerating)
         {
-            _rigidbody.velocity += new Vector3(0, 0, AccelerationFactor);
+            _rigidbody.velocity += _rigidbody.rotation * new Vector3(0, 0, AccelerationFactor) * deltaTime;
         }
 
         if (_braking)
         {
-            _rigidbody.velocity += new Vector3(0, 0, BrakingFactor);
-            if (_rigidbody.velocity.z < 0)
+            _rigidbody.velocity += _rigidbody.rotation * new Vector3(0, 0, BrakingFactor) * deltaTime;
+            if (_rigidbody.velocity.magnitude > 0 && Vector3.Dot(_rigidbody.velocity.normalized, transform.forward) < 0)
             {
                 _rigidbody.velocity = new Vector3(0, 0, 0);
+            }
+        }
+
+        var movingForward = _rigidbody.velocity.magnitude > 0 && Vector3.Dot(_rigidbody.velocity.normalized, transform.forward) > 0;
+        if (movingForward)
+        {
+            if (_steer == _steerLeft)
+            {
+                _rigidbody.rotation = _rigidbody.rotation * Quaternion.AngleAxis(-TurningSpeed * deltaTime, Vector3.up);
+            }
+
+            if (_steer == _steerRight)
+            {
+                _rigidbody.rotation = _rigidbody.rotation * Quaternion.AngleAxis(TurningSpeed * deltaTime, Vector3.up);
             }
         }
     }

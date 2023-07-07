@@ -280,8 +280,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3dce10889ab174f649591f3083d52273, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AccelerationFactor: 0.01
-  BrakingFactor: -0.05
+  AccelerationFactor: 20
+  BrakingFactor: -40
+  TurningSpeed: 60
+  DriftFactor: 10
 --- !u!114 &565105432
 MonoBehaviour:
   m_ObjectHideFlags: 0
