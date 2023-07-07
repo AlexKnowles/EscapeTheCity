@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using static UnityEditor.FilePathAttribute;
 
 [RequireComponent(typeof (PlayerInput))]
 [RequireComponent(typeof(Rigidbody))]
@@ -59,8 +60,15 @@ public class PlayerControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
         float deltaTime = Time.deltaTime;
+        // do this some other time
+        //if (_rigidbody.velocity.magnitude > 0.01f && Vector3.Distance(_rigidbody.velocity.normalized, new Vector3(
+        //    _rigidbody.rotation.x, _rigidbody.rotation.y, _rigidbody.rotation.z).normalized) > 0.01f)
+        //{
+        //    // pull the car toward forward
+        //   // _rigidbody.velocity = Quaternion.RotateTowards(
+        //     //   Quaternion.LookRotation(_rigidbody.velocity.normalized), _rigidbody.rotation, DriftFactor * deltaTime) * _rigidbody.velocity.normalized * _rigidbody.velocity.magnitude;
+        //}
 
         if (_accelerating)
         {
