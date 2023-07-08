@@ -19,9 +19,9 @@ public class PlayerControl : MonoBehaviour
     public GameObject FollowCamera;
     private Transform _followCameraTransform;
 
-    public float AccelerationFactor = 20f;
+    public float AccelerationFactor = 15f;
 
-    public float BrakingFactor = -40f;
+    public float BrakingFactor = -20f;
 
     public float TurningSpeed = 90f;
 
