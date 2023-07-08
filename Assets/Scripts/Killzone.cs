@@ -30,7 +30,7 @@ public class Killzone : MonoBehaviour
         var otherRb = other.GetComponent<Rigidbody>();
         if (otherRb != null && otherRb == _playerRb)
         {
-            Debug.Log("Entered the winning zone");
+            Debug.Log("Entered the losing zone");
             _playerStatus.PlayerLoses();
         }
     }
