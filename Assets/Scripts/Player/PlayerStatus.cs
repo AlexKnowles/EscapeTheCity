@@ -6,9 +6,18 @@ public class PlayerStatus : MonoBehaviour
 {
     public bool IsPlaying = true;
 
+    public int Points = 0;
+
     public void Reset()
     {
         IsPlaying = true;
+        Points = 0;
+    }
+
+
+    public void AdjustPoints(int adjustment)
+    {
+        Points += adjustment;
     }
 
     // Start is called before the first frame update
