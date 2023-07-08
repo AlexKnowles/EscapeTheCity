@@ -61,14 +61,11 @@ public class PlayerControl : MonoBehaviour
     void Update()
     {
         float deltaTime = Time.deltaTime;
-        // do this some other time
-        //if (_rigidbody.velocity.magnitude > 0.01f && Vector3.Distance(_rigidbody.velocity.normalized, new Vector3(
-        //    _rigidbody.rotation.x, _rigidbody.rotation.y, _rigidbody.rotation.z).normalized) > 0.01f)
-        //{
-        //    // pull the car toward forward
-        //   // _rigidbody.velocity = Quaternion.RotateTowards(
-        //     //   Quaternion.LookRotation(_rigidbody.velocity.normalized), _rigidbody.rotation, DriftFactor * deltaTime) * _rigidbody.velocity.normalized * _rigidbody.velocity.magnitude;
-        //}
+
+        if (Vector3.Dot(_rigidbody.velocity, transform.forward) < 0.1f)
+        {
+            _rigidbody.angularVelocity *= (1f - _rigidbody.angularDrag * deltaTime);
+        }
 
         if (_accelerating)
         {
