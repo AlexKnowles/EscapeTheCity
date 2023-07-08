@@ -14,6 +14,7 @@ public class PlayerControl : MonoBehaviour
 
     private bool _accelerating = false;
     private bool _braking = false;
+    private bool _reversing = false;
     private float _steer = 0.0f;
 
     private Quaternion _initRotation;
@@ -32,6 +33,8 @@ public class PlayerControl : MonoBehaviour
     public float TurningSpeed = 90f;
 
     public float DriftFactor = 10f;
+
+    public float TopSpeed = 20f;
 
     // Start is called before the first frame update
     void Start()
@@ -56,7 +59,15 @@ public class PlayerControl : MonoBehaviour
 
     public void OnBrake(InputValue value)
     {
-        _braking = value.isPressed;
+        if (!_braking && _rigidbody.velocity.magnitude < 0.1f)
+        {
+            _reversing = true;
+        }
+        else
+        {
+            _reversing = false;
+            _braking = value.isPressed;
+        }
     }
 
     private const float _steerLeft = -1;
@@ -99,6 +110,16 @@ public class PlayerControl : MonoBehaviour
             _rigidbody.velocity += _rigidbody.rotation * new Vector3(0, 0, AccelerationFactor) * deltaTime;
         }
 
+        if (_reversing)
+        {
+            _rigidbody.velocity += _rigidbody.rotation * new Vector3(0, 0, -AccelerationFactor) * deltaTime;
+        }
+
+        if (_rigidbody.velocity.magnitude > TopSpeed)
+        {
+            _rigidbody.velocity = _rigidbody.velocity.normalized * TopSpeed;
+        }
+
         if (_braking)
         {
             _rigidbody.velocity += _rigidbody.rotation * new Vector3(0, 0, BrakingFactor) * deltaTime;
@@ -107,16 +128,15 @@ public class PlayerControl : MonoBehaviour
                 _rigidbody.velocity = new Vector3(0, 0, 0);
             }
         }
-        var forwardMovementAmount = Vector3.Dot(_rigidbody.velocity.normalized, transform.forward);
-        var movingForward = _rigidbody.velocity.magnitude > 0 && forwardMovementAmount > 0;
-        if (movingForward)
+
+        if (_rigidbody.velocity.magnitude > 0.1f)
         {
             if (_steer == _steerLeft)
             {
-                _turnAmount -= TurningSpeed * 0.5f * forwardMovementAmount;
+                _turnAmount -= TurningSpeed * 0.5f * Vector3.Dot(_rigidbody.velocity, transform.forward);
             } else if (_steer == _steerRight)
             {
-                _turnAmount += TurningSpeed * 0.5f * forwardMovementAmount;
+                _turnAmount += TurningSpeed * 0.5f * Vector3.Dot(_rigidbody.velocity, transform.forward);
             }
             else
             {

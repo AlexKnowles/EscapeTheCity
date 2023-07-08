@@ -653,6 +653,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8770490341452774141, guid: d54707d64a21f48ba9f8850d361486bd, type: 3}
+      propertyPath: TopSpeed
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 8770490341452774141, guid: d54707d64a21f48ba9f8850d361486bd, type: 3}
       propertyPath: StartPoint
       value: 
       objectReference: {fileID: 412465525}
@@ -846,7 +850,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 1006e79ecd0494456b0ef00e590a8277, type: 2}
+  - {fileID: 2100000, guid: ec6fd6355913e4c3cb1ac7dc2c9c0f6c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
