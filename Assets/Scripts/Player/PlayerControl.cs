@@ -6,9 +6,11 @@ using static UnityEditor.FilePathAttribute;
 
 [RequireComponent(typeof (PlayerInput))]
 [RequireComponent(typeof(Rigidbody))]
+[RequireComponent(typeof(PlayerStatus))]
 public class PlayerControl : MonoBehaviour
 {
     private Rigidbody _rigidbody;
+    private PlayerStatus _playerStatus;
 
     private bool _accelerating = false;
     private bool _braking = false;
@@ -31,6 +33,7 @@ public class PlayerControl : MonoBehaviour
     void Start()
     {
         _rigidbody = GetComponent<Rigidbody>();
+        _playerStatus = GetComponent<PlayerStatus>();
 
         if (FollowCamera != null)
         {
@@ -61,6 +64,12 @@ public class PlayerControl : MonoBehaviour
     void Update()
     {
         float deltaTime = Time.deltaTime;
+
+        if (!_playerStatus.IsPlaying)
+        {
+            _rigidbody.velocity = new Vector3(0, 0, 0);
+            return;
+        }
 
         if (Vector3.Dot(_rigidbody.velocity, transform.forward) < 0.1f)
         {

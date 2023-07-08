@@ -93,7 +93,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: c6c08047bf40185409ef4cb4c8ffe2eb, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c6c08047bf40185409ef4cb4c8ffe2eb, type: 3}
       propertyPath: m_LocalScale.x
@@ -149,7 +149,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: c6c08047bf40185409ef4cb4c8ffe2eb, type: 3}
       propertyPath: m_Name
-      value: PlayerCar Variant
+      value: PlayerCar
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: c6c08047bf40185409ef4cb4c8ffe2eb, type: 3}
       propertyPath: m_TagString
@@ -177,6 +177,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: c6c08047bf40185409ef4cb4c8ffe2eb, type: 3}
       insertIndex: -1
       addedObject: {fileID: 524106777132737276}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: c6c08047bf40185409ef4cb4c8ffe2eb, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 573022866216344821}
   m_SourcePrefab: {fileID: 100100000, guid: c6c08047bf40185409ef4cb4c8ffe2eb, type: 3}
 --- !u!1 &2341612961005370810 stripped
 GameObject:
@@ -290,6 +293,18 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &573022866216344821
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2341612961005370810}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d942c1348d4743cdb3aa7c3e167995c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &3113328989307709184 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: c6c08047bf40185409ef4cb4c8ffe2eb, type: 3}
