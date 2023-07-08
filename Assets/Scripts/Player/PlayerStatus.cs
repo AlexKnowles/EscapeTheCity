@@ -11,9 +11,25 @@ public class PlayerStatus : MonoBehaviour
     public void Reset()
     {
         IsPlaying = true;
+        _playerHasWon = false;
         Points = 0;
     }
 
+    private bool _playerHasWon = false;
+
+    public void PlayerWins()
+    {
+        if (!_playerHasWon)
+        {
+            _playerHasWon = true;
+            Invoke("InternalPlayerWins", 0.25f);
+        }
+    }
+
+    private void InternalPlayerWins()
+    {
+        IsPlaying = false;
+    }
 
     public void AdjustPoints(int adjustment)
     {

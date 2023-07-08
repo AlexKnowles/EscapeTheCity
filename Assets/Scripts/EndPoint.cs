@@ -32,7 +32,7 @@ public class EndPoint : MonoBehaviour
         if (otherRb != null && otherRb == _playerRb)
         {
             Debug.Log("Entered the winning zone");
-            _playerStatus.IsPlaying = false;
+            _playerStatus.PlayerWins();
         }
     }
 }
