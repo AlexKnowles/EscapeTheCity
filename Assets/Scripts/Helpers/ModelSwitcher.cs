@@ -4,38 +4,15 @@ using UnityEngine;
 [SelectionBase]
 public class ModelSwitcher : MonoBehaviour
 {
-    public GameObject[] models;
+    public Vector3 ModelPositionOffset = Vector3.zero;
     public GameObject CurrentModelInWorld { get; private set; }
 
-    public void LoadModel(int index)
+    public void LoadModel(GameObject prefab, int rotation)
     {
-        if (CurrentModelInWorld != null)
-        {
-            DestroyImmediate(CurrentModelInWorld);
-            CurrentModelInWorld = null;
-        }
+        CurrentModelInWorld = Instantiate(prefab, transform);
+        CurrentModelInWorld.transform.localPosition = (Vector3.zero + ModelPositionOffset);
+        CurrentModelInWorld.transform.Rotate(Vector3.up, rotation * 90f);
 
-        foreach (Transform child in transform)
-        {
-            DestroyImmediate(child.gameObject);
-        }
-
-        CurrentModelInWorld = Instantiate(models[index], transform);
-        CurrentModelInWorld.transform.localPosition = Vector3.zero;
-    }
-    public void LoadModel(string name)
-    {
-        int indexForNamedObject = models.ToList().FindIndex(i => i.name == name);
-        LoadModel(indexForNamedObject);
-    }
-
-    public void RotateClockwise()
-    {
-        CurrentModelInWorld.transform.Rotate(Vector3.up, 90f);
-    }
-
-    public void RotateCounterClockwise()
-    {
-        CurrentModelInWorld.transform.Rotate(Vector3.up, -90f);
+        CurrentModelInWorld.GetComponent<MeshRenderer>().shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;
     }
 }

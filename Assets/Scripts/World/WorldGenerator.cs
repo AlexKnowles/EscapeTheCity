@@ -9,7 +9,9 @@ public class WorldGenerator : MonoBehaviour
     public Texture2D MapTexture;
 
     [SerializeField]
-    public ColorGameObject[] Tiles = Array.Empty<ColorGameObject>();
+    public GameObject[] PrefabTiles;
+
+    public Dictionary<Vector2, WorldTile> AllTiles { get; private set; } = new();
 
     public void GenerateWorld()
     {
@@ -28,8 +30,9 @@ public class WorldGenerator : MonoBehaviour
                     continue;
                 }
 
+
                 Vector3 position = new(x, 0, y);
-                GameObject prefab = Tiles.FirstOrDefault(w => w.Colour == pixelColor)?.GameObject;
+                GameObject prefab = PrefabTiles.FirstOrDefault(w => w.GetComponent<WorldTile>().MapColour == pixelColor);
 
                 if(prefab is null)
                 {
@@ -39,37 +42,82 @@ public class WorldGenerator : MonoBehaviour
 
                 GameObject newTile = Instantiate(prefab, transform);
                 newTile.transform.position = position;
+                AllTiles.Add(new(x, y), newTile.GetComponent<WorldTile>());
             }
         }
 
-        GetComponent<WorldRoadConnect>().ConnectRoads();
+        GetComponent<WorldWaterConnector>().Connect(this);
+        //GetComponent<WorldRoadConnect>().ConnectRoads();
+        //GetComponent<WorldLandConnect>().ConnectLand();
+    }
+
+    public WorldTileTypeModel GetWorldTileTypesAround(Vector2 mapPosition)
+    {
+        WorldTileTypeModel result = new();
+
+        if(AllTiles.TryGetValue(mapPosition + Vector2.up, out WorldTile northTile))
+        {
+            result.North = northTile.Type;
+        }
+
+        if (AllTiles.TryGetValue(mapPosition + Vector2.up + Vector2.right, out WorldTile northEastTile))
+        {
+            result.NorthEast = northEastTile.Type;
+        }
+
+        if (AllTiles.TryGetValue(mapPosition + Vector2.right, out WorldTile eastTile))
+        {
+            result.East = eastTile.Type;
+        }
+
+        if (AllTiles.TryGetValue(mapPosition + Vector2.down + Vector2.right, out WorldTile southEastTile))
+        {
+            result.SouthEast = southEastTile.Type;
+        }
+
+        if (AllTiles.TryGetValue(mapPosition + Vector2.down, out WorldTile southTile))
+        {
+            result.South = southTile.Type;
+        }
+
+        if (AllTiles.TryGetValue(mapPosition + Vector2.down + Vector2.left, out WorldTile southWestTile))
+        {
+            result.SouthWest = southWestTile.Type;
+        }
+
+        if (AllTiles.TryGetValue(mapPosition + Vector2.left, out WorldTile westTile))
+        {
+            result.West = westTile.Type;
+        }
+
+        if (AllTiles.TryGetValue(mapPosition + Vector2.up + Vector2.left, out WorldTile northWestTile))
+        {
+            result.NorthWest = northWestTile.Type;
+        }
+
+        return result;
     }
 
     private void ClearWorld()
     {
-        DestroyChildren(transform);
-    }
+        AllTiles = new();
 
-    public void DestroyChildren(Transform parentTransform)
-    {
-        if (parentTransform.childCount == 0)
+        if (transform.childCount == 0)
         {
             return;
         }
 
-        for(int i = 0; i < parentTransform.childCount; i++)
-        {
-            Transform childTransform = parentTransform.GetChild(i);
+        List<GameObject> childrenToDelete = new();
 
-            DestroyChildren(childTransform);
-            DestroyImmediate(childTransform.gameObject);
+        for (int i = 0; i < transform.childCount; i++)
+        {
+            childrenToDelete.Add(transform.GetChild(i).gameObject);
+        }
+
+        foreach (GameObject child in childrenToDelete)
+        {
+            DestroyImmediate(child.gameObject);
         }
     }
 
-    [Serializable]
-    public class ColorGameObject
-    {
-        public Color Colour;
-        public GameObject GameObject;
-    }
 }
