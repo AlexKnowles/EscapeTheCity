@@ -77,6 +77,20 @@ public class PlayerControl : MonoBehaviour
     {
         return (_rigidbody.velocity.magnitude, TopSpeed);
     }
+
+    public float GetSidewaysness()
+    {
+        Vector3 forward = transform.forward;
+        Vector3 velocity = _rigidbody.velocity.normalized;
+        float dotProduct = Vector3.Dot(forward, velocity);
+        float sidewaysness = Mathf.Clamp01(1f - dotProduct);
+        if (sidewaysness < 0.01f || sidewaysness == 1)
+        {
+            return 0;
+        }
+        return sidewaysness;
+    }
+
     private const float _steerLeft = -1;
     private const float _steerRight = 1;
 
@@ -118,9 +132,9 @@ public class PlayerControl : MonoBehaviour
             return;
         }
 
-        if (Vector3.Dot(_rigidbody.velocity, transform.forward) < 0.1f)
+        if (GetSidewaysness() > 0.2f)
         {
-            _rigidbody.angularVelocity *= (1f - _rigidbody.angularDrag * deltaTime);
+            //_rigidbody.angularVelocity *= (1f - _rigidbody.angularDrag * deltaTime);
         }
 
         if (_accelerating)
