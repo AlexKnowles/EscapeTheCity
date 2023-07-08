@@ -6,6 +6,11 @@ public class PlayerStatus : MonoBehaviour
 {
     public bool IsPlaying = true;
 
+    public void Reset()
+    {
+        IsPlaying = true;
+    }
+
     // Start is called before the first frame update
     void Start()
     {

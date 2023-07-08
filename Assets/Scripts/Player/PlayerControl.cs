@@ -18,6 +18,8 @@ public class PlayerControl : MonoBehaviour
 
     private float _turnAmount = 0.0f;
 
+    public GameObject StartPoint;
+
     public GameObject FollowCamera;
     private Transform _followCameraTransform;
 
@@ -34,6 +36,8 @@ public class PlayerControl : MonoBehaviour
     {
         _rigidbody = GetComponent<Rigidbody>();
         _playerStatus = GetComponent<PlayerStatus>();
+
+        OnReset();
 
         if (FollowCamera != null)
         {
@@ -58,6 +62,15 @@ public class PlayerControl : MonoBehaviour
     {
         // right is 1, left is -1
         _steer = value.Get<float>();
+    }
+
+    public void OnReset()
+    {
+        if (!_playerStatus.IsPlaying)
+        {
+            transform.position = StartPoint.transform.position;
+            _playerStatus.Reset();
+        }
     }
 
     // Update is called once per frame
