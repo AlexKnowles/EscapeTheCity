@@ -24,6 +24,7 @@ public class PlayerControl : MonoBehaviour
     private GameObject StartPoint;
 
     private Transform _followCameraTransform;
+    private Camera _mainCamera;
 
     public float AccelerationFactor = 15f;
 
@@ -52,6 +53,7 @@ public class PlayerControl : MonoBehaviour
         if (FollowCamera != null)
         {
             _followCameraTransform = FollowCamera.transform.parent;
+            _mainCamera = FollowCamera.GetComponent<Camera>();
         }
     }
 
@@ -191,6 +193,9 @@ public class PlayerControl : MonoBehaviour
         if (_followCameraTransform != null)
         {
             _followCameraTransform.position = _rigidbody.position;
+            var (current, max) = GetSpeedData();
+            var cameraZoom = 1.5f * ((current + 2f) / max);
+            _mainCamera.orthographicSize = Mathf.Clamp(1.5f + cameraZoom, 1.5f, 3.0f);
         }
     }
 }
