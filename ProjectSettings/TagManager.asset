@@ -6,6 +6,7 @@ TagManager:
   tags:
   - StartPoint
   - ExitSign
+  - Collectable
   layers:
   - Default
   - TransparentFX

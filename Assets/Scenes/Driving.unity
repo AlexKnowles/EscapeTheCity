@@ -592,10 +592,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 9986379358498516, guid: d54707d64a21f48ba9f8850d361486bd, type: 3}
-      propertyPath: CompassDistance
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 573022866216344821, guid: d54707d64a21f48ba9f8850d361486bd, type: 3}
       propertyPath: EndPoint
       value: 
@@ -1652,6 +1648,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7479062168159620008, guid: c0128f203254e46468412e97b718c969, type: 3}
       propertyPath: m_Name
+      value: Collectable
+      objectReference: {fileID: 0}
+    - target: {fileID: 7479062168159620008, guid: c0128f203254e46468412e97b718c969, type: 3}
+      propertyPath: m_TagString
       value: Collectable
       objectReference: {fileID: 0}
     m_RemovedComponents: []
