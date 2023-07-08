@@ -2,34 +2,67 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum GameStatus
+{
+    Playing,
+    Won,
+    Lost
+}
+
 public class PlayerStatus : MonoBehaviour
 {
-    public bool IsPlaying = true;
+    public bool IsPlaying
+    {
+        get
+        {
+            return _gameStatus == GameStatus.Playing;
+        }
+    }
+
+    public GameStatus GameStatus
+    {
+        get
+        {
+            return _gameStatus;
+        }
+    }
+
+    private GameStatus _gameStatus = GameStatus.Playing;
+
+    private GameStatus? _pendingStatus;
 
     public int Points = 0;
 
     public void Reset()
     {
-        IsPlaying = true;
-        _playerHasWon = false;
+        _gameStatus = GameStatus.Playing;
+        _pendingStatus = null;
         Points = 0;
     }
 
-    private bool _playerHasWon = false;
-
     public void PlayerWins()
     {
-        if (!_playerHasWon)
+        if (IsPlaying && _pendingStatus == null)
         {
-            _playerHasWon = true;
-            Invoke("InternalPlayerWins", 0.25f);
+            _pendingStatus = GameStatus.Won;
+            Invoke("InternalChangeStatus", 0.25f);
         }
     }
 
-    private void InternalPlayerWins()
+    private void InternalChangeStatus()
     {
-        IsPlaying = false;
+        _gameStatus = (GameStatus)_pendingStatus;
     }
+
+    public void PlayerLoses()
+    {
+        if (IsPlaying && _pendingStatus == null)
+        {
+            _pendingStatus = GameStatus.Lost;
+            Invoke("InternalChangeStatus", 0.25f);
+        }
+    }
+
 
     public void AdjustPoints(int adjustment)
     {

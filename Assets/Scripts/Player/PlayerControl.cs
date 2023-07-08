@@ -21,9 +21,8 @@ public class PlayerControl : MonoBehaviour
 
     private float _turnAmount = 0.0f;
 
-    public GameObject StartPoint;
+    private GameObject StartPoint;
 
-    public GameObject FollowCamera;
     private Transform _followCameraTransform;
 
     public float AccelerationFactor = 15f;
@@ -44,11 +43,15 @@ public class PlayerControl : MonoBehaviour
 
         _initRotation = _rigidbody.rotation;
 
+        StartPoint = GameObject.FindWithTag("StartPoint");
+
         OnReset();
+
+        var FollowCamera = GameObject.FindWithTag("MainCamera");
 
         if (FollowCamera != null)
         {
-            _followCameraTransform = FollowCamera.GetComponent<Transform>();
+            _followCameraTransform = FollowCamera.transform.parent;
         }
     }
 
@@ -70,6 +73,24 @@ public class PlayerControl : MonoBehaviour
         }
     }
 
+    public (float, float) GetSpeedData()
+    {
+        return (_rigidbody.velocity.magnitude, TopSpeed);
+    }
+
+    public float GetSidewaysness()
+    {
+        Vector3 forward = transform.forward;
+        Vector3 velocity = _rigidbody.velocity.normalized;
+        float dotProduct = Vector3.Dot(forward, velocity);
+        float sidewaysness = Mathf.Clamp01(1f - dotProduct);
+        if (sidewaysness < 0.01f || sidewaysness == 1)
+        {
+            return 0;
+        }
+        return sidewaysness;
+    }
+
     private const float _steerLeft = -1;
     private const float _steerRight = 1;
 
@@ -86,7 +107,17 @@ public class PlayerControl : MonoBehaviour
             transform.position = StartPoint.transform.position;
             _rigidbody.velocity = new Vector3(0, 0, 0);
             _rigidbody.rotation = _initRotation;
+            _rigidbody.detectCollisions = true;
             _playerStatus.Reset();
+        }
+    }
+
+    private void HandleStoppedPlayer()
+    {
+        if (_playerStatus.GameStatus == GameStatus.Lost)
+        {
+            // just fall off the world for now
+            _rigidbody.detectCollisions = false;
         }
     }
 
@@ -97,12 +128,20 @@ public class PlayerControl : MonoBehaviour
 
         if (!_playerStatus.IsPlaying)
         {
+            HandleStoppedPlayer();
             return;
         }
 
-        if (Vector3.Dot(_rigidbody.velocity, transform.forward) < 0.1f)
+        var sidewaysNess = GetSidewaysness();
+        if (sidewaysNess > 0.2f)
         {
-            _rigidbody.angularVelocity *= (1f - _rigidbody.angularDrag * deltaTime);
+            //_rigidbody.angularVelocity *= (1f - _rigidbody.angularDrag * deltaTime);
+
+            var lostToSideways = _rigidbody.velocity * sidewaysNess;
+
+            _rigidbody.velocity -= lostToSideways;
+
+            _rigidbody.velocity += (lostToSideways.magnitude / 2 * transform.forward);
         }
 
         if (_accelerating)

@@ -5,17 +5,16 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public class EndPoint : MonoBehaviour
 {
-    public GameObject Player;
+    private GameObject Player;
 
     private Rigidbody _playerRb;
 
     private PlayerStatus _playerStatus;
 
-    public bool IsPlaying = true;
-
     // Start is called before the first frame update
     void Start()
     {
+        Player = GameObject.FindWithTag("Player");
         _playerRb = Player.GetComponent<Rigidbody>();
         _playerStatus = Player.GetComponent<PlayerStatus>();
     }
