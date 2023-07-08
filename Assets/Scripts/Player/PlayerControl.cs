@@ -21,9 +21,8 @@ public class PlayerControl : MonoBehaviour
 
     private float _turnAmount = 0.0f;
 
-    public GameObject StartPoint;
+    private GameObject StartPoint;
 
-    public GameObject FollowCamera;
     private Transform _followCameraTransform;
 
     public float AccelerationFactor = 15f;
@@ -44,11 +43,15 @@ public class PlayerControl : MonoBehaviour
 
         _initRotation = _rigidbody.rotation;
 
+        StartPoint = GameObject.FindWithTag("StartPoint");
+
         OnReset();
+
+        var FollowCamera = GameObject.FindWithTag("MainCamera");
 
         if (FollowCamera != null)
         {
-            _followCameraTransform = FollowCamera.GetComponent<Transform>();
+            _followCameraTransform = FollowCamera.transform.parent;
         }
     }
 
