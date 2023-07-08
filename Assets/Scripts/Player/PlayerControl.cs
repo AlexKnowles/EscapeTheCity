@@ -70,6 +70,10 @@ public class PlayerControl : MonoBehaviour
         }
     }
 
+    public (float, float) GetSpeedData()
+    {
+        return (_rigidbody.velocity.magnitude, TopSpeed);
+    }
     private const float _steerLeft = -1;
     private const float _steerRight = 1;
 
