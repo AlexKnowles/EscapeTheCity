@@ -132,9 +132,16 @@ public class PlayerControl : MonoBehaviour
             return;
         }
 
-        if (GetSidewaysness() > 0.2f)
+        var sidewaysNess = GetSidewaysness();
+        if (sidewaysNess > 0.2f)
         {
             //_rigidbody.angularVelocity *= (1f - _rigidbody.angularDrag * deltaTime);
+
+            var lostToSideways = _rigidbody.velocity * sidewaysNess;
+
+            _rigidbody.velocity -= lostToSideways;
+
+            _rigidbody.velocity += (lostToSideways.magnitude / 2 * transform.forward);
         }
 
         if (_accelerating)
