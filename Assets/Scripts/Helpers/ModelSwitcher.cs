@@ -13,6 +13,12 @@ public class ModelSwitcher : MonoBehaviour
         CurrentModelInWorld.transform.localPosition = (Vector3.zero + ModelPositionOffset);
         CurrentModelInWorld.transform.Rotate(Vector3.up, rotation * 90f);
 
-        CurrentModelInWorld.GetComponent<MeshRenderer>().shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;
+        MeshRenderer meshRenderer = CurrentModelInWorld.GetComponent<MeshRenderer>();
+
+        if (meshRenderer != null)
+        {
+            meshRenderer.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;
+        }
+
     }
 }

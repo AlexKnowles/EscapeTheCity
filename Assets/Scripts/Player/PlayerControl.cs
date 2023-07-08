@@ -195,7 +195,7 @@ public class PlayerControl : MonoBehaviour
             _followCameraTransform.position = _rigidbody.position;
             var (current, max) = GetSpeedData();
             var cameraZoom = 1.5f * ((current + 2f) / max);
-            _mainCamera.orthographicSize = Mathf.Clamp(1.5f + cameraZoom, 1.5f, 3.0f);
+            _mainCamera.orthographicSize = Mathf.Lerp(_mainCamera.orthographicSize, Mathf.Clamp(1.5f + cameraZoom, 1.5f, 3.0f), Time.deltaTime);
         }
     }
 }
