@@ -41,7 +41,8 @@ public class WorldGenerator : MonoBehaviour
                 }
 
                 GameObject newTile = Instantiate(prefab, transform);
-                newTile.transform.position = position;
+                newTile.transform.position = position * 2;
+                newTile.transform.localScale *= 2;
                 AllTiles.Add(new(x, y), newTile.GetComponent<WorldTile>());
             }
         }

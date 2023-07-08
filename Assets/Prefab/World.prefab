@@ -89,6 +89,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Models:
+  - North: 3
+    NorthEast: 3
+    East: 3
+    SouthEast: 3
+    South: 3
+    SouthWest: 3
+    West: 3
+    NorthWest: 3
+    Model: {fileID: 919132149155446097, guid: 00472dd2c148d9c49a8ac107e5b51a04, type: 3}
+    ModelRotation: 0
   - North: 2
     NorthEast: 0
     East: 3
