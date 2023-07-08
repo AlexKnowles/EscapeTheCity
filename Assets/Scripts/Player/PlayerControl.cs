@@ -17,8 +17,6 @@ public class PlayerControl : MonoBehaviour
     private bool _reversing = false;
     private float _steer = 0.0f;
 
-    private Quaternion _initRotation;
-
     private float _turnAmount = 0.0f;
 
     private GameObject StartPoint;
@@ -41,8 +39,6 @@ public class PlayerControl : MonoBehaviour
     {
         _rigidbody = GetComponent<Rigidbody>();
         _playerStatus = GetComponent<PlayerStatus>();
-
-        _initRotation = _rigidbody.rotation;
 
         StartPoint = GameObject.FindWithTag("StartPoint");
 
@@ -104,14 +100,14 @@ public class PlayerControl : MonoBehaviour
 
     public void OnReset()
     {
-        if (!_playerStatus.IsPlaying)
-        {
+        //if (!_playerStatus.IsPlaying)
+        //{
             transform.position = StartPoint.transform.position;
             _rigidbody.velocity = new Vector3(0, 0, 0);
-            _rigidbody.rotation = _initRotation;
+            _rigidbody.rotation = StartPoint.transform.rotation;
             _rigidbody.detectCollisions = true;
             _playerStatus.Reset();
-        }
+        //}
     }
 
     private void HandleStoppedPlayer()
