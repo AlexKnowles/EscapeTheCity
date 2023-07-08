@@ -48,8 +48,7 @@ public class WorldGenerator : MonoBehaviour
         }
 
         GetComponent<WorldWaterConnector>().Connect(this);
-        //GetComponent<WorldRoadConnect>().ConnectRoads();
-        //GetComponent<WorldLandConnect>().ConnectLand();
+        GetComponent<WorldRoadConnector>().Connect(this);
     }
 
     public WorldTileTypeModel GetWorldTileTypesAround(Vector2 mapPosition)

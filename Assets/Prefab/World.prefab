@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 8637616375849864089}
   - component: {fileID: 5604652794329541781}
   - component: {fileID: 3417744271617855405}
-  - component: {fileID: 3791962817810504822}
   - component: {fileID: 125844333328804938}
   m_Layer: 0
   m_Name: World
@@ -33,7 +32,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5604652794329541781
 MonoBehaviour:
@@ -64,18 +63,187 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8629067f359af5b4c9f11336eea0f974, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &3791962817810504822
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 307400840062921916}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 010a3ab2cae41074dba5a47085ebdee0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  Models:
+  - North: 2
+    NorthEast: 0
+    East: 2
+    SouthEast: 0
+    South: 2
+    SouthWest: 0
+    West: 2
+    NorthWest: 0
+    Model: {fileID: 919132149155446097, guid: d197d2832c7a46841bcb473269b1e176, type: 3}
+    ModelRotation: 0
+  - North: 2
+    NorthEast: 0
+    East: 2
+    SouthEast: 0
+    South: 2
+    SouthWest: 0
+    West: 1
+    NorthWest: 0
+    Model: {fileID: 919132149155446097, guid: 158aba0f951b6ee49af2a1c913d3558b, type: 3}
+    ModelRotation: 0
+  - North: 1
+    NorthEast: 0
+    East: 2
+    SouthEast: 0
+    South: 2
+    SouthWest: 0
+    West: 2
+    NorthWest: 0
+    Model: {fileID: 919132149155446097, guid: 158aba0f951b6ee49af2a1c913d3558b, type: 3}
+    ModelRotation: 1
+  - North: 2
+    NorthEast: 0
+    East: 1
+    SouthEast: 0
+    South: 2
+    SouthWest: 0
+    West: 2
+    NorthWest: 0
+    Model: {fileID: 919132149155446097, guid: 158aba0f951b6ee49af2a1c913d3558b, type: 3}
+    ModelRotation: 2
+  - North: 2
+    NorthEast: 0
+    East: 2
+    SouthEast: 0
+    South: 1
+    SouthWest: 0
+    West: 2
+    NorthWest: 0
+    Model: {fileID: 919132149155446097, guid: 158aba0f951b6ee49af2a1c913d3558b, type: 3}
+    ModelRotation: 3
+  - North: 2
+    NorthEast: 0
+    East: 2
+    SouthEast: 0
+    South: 1
+    SouthWest: 0
+    West: 2
+    NorthWest: 0
+    Model: {fileID: 919132149155446097, guid: 158aba0f951b6ee49af2a1c913d3558b, type: 3}
+    ModelRotation: 3
+  - North: 1
+    NorthEast: 0
+    East: 1
+    SouthEast: 0
+    South: 2
+    SouthWest: 0
+    West: 1
+    NorthWest: 0
+    Model: {fileID: 919132149155446097, guid: 021b6aa170ea85947be70f101e68dd62, type: 3}
+    ModelRotation: 0
+  - North: 1
+    NorthEast: 0
+    East: 1
+    SouthEast: 0
+    South: 2
+    SouthWest: 0
+    West: 1
+    NorthWest: 0
+    Model: {fileID: 919132149155446097, guid: 54335e68f5946cf4ca3a4092af20842d, type: 3}
+    ModelRotation: 0
+  - North: 1
+    NorthEast: 0
+    East: 1
+    SouthEast: 0
+    South: 1
+    SouthWest: 0
+    West: 2
+    NorthWest: 0
+    Model: {fileID: 919132149155446097, guid: 021b6aa170ea85947be70f101e68dd62, type: 3}
+    ModelRotation: 1
+  - North: 2
+    NorthEast: 0
+    East: 1
+    SouthEast: 0
+    South: 1
+    SouthWest: 0
+    West: 1
+    NorthWest: 0
+    Model: {fileID: 919132149155446097, guid: 021b6aa170ea85947be70f101e68dd62, type: 3}
+    ModelRotation: 2
+  - North: 1
+    NorthEast: 0
+    East: 2
+    SouthEast: 0
+    South: 1
+    SouthWest: 0
+    West: 1
+    NorthWest: 0
+    Model: {fileID: 919132149155446097, guid: 021b6aa170ea85947be70f101e68dd62, type: 3}
+    ModelRotation: 3
+  - North: 1
+    NorthEast: 0
+    East: 1
+    SouthEast: 0
+    South: 1
+    SouthWest: 0
+    West: 1
+    NorthWest: 0
+    Model: {fileID: 919132149155446097, guid: 54335e68f5946cf4ca3a4092af20842d, type: 3}
+    ModelRotation: 0
+  - North: 2
+    NorthEast: 0
+    East: 1
+    SouthEast: 0
+    South: 2
+    SouthWest: 0
+    West: 1
+    NorthWest: 0
+    Model: {fileID: 919132149155446097, guid: b9d94fcc0d6856741a305231b7ea8b9a, type: 3}
+    ModelRotation: 0
+  - North: 1
+    NorthEast: 0
+    East: 2
+    SouthEast: 0
+    South: 1
+    SouthWest: 0
+    West: 2
+    NorthWest: 0
+    Model: {fileID: 919132149155446097, guid: b9d94fcc0d6856741a305231b7ea8b9a, type: 3}
+    ModelRotation: 1
+  - North: 1
+    NorthEast: 0
+    East: 1
+    SouthEast: 0
+    South: 2
+    SouthWest: 0
+    West: 2
+    NorthWest: 0
+    Model: {fileID: 919132149155446097, guid: 34fa72b1ef7ffae41b9be50e8ff69575, type: 3}
+    ModelRotation: 0
+  - North: 2
+    NorthEast: 0
+    East: 1
+    SouthEast: 0
+    South: 1
+    SouthWest: 0
+    West: 2
+    NorthWest: 0
+    Model: {fileID: 919132149155446097, guid: 34fa72b1ef7ffae41b9be50e8ff69575, type: 3}
+    ModelRotation: 1
+  - North: 2
+    NorthEast: 0
+    East: 2
+    SouthEast: 0
+    South: 1
+    SouthWest: 0
+    West: 1
+    NorthWest: 0
+    Model: {fileID: 919132149155446097, guid: 34fa72b1ef7ffae41b9be50e8ff69575, type: 3}
+    ModelRotation: 2
+  - North: 1
+    NorthEast: 0
+    East: 2
+    SouthEast: 0
+    South: 2
+    SouthWest: 0
+    West: 1
+    NorthWest: 0
+    Model: {fileID: 919132149155446097, guid: 34fa72b1ef7ffae41b9be50e8ff69575, type: 3}
+    ModelRotation: 3
 --- !u!114 &125844333328804938
 MonoBehaviour:
   m_ObjectHideFlags: 0

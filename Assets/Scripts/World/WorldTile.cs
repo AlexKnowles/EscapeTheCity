@@ -11,8 +11,8 @@ public class WorldTile : MonoBehaviour
         GetComponent<ModelSwitcher>().LoadModel(model, modelRotation);
     }
 
-    internal void SetParent(Transform transform)
+    internal void SetParent(Transform parentTransform)
     {
-        transform.parent = transform;
+        transform.parent = parentTransform;
     }
 }
