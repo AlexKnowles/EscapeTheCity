@@ -90,7 +90,17 @@ public class PlayerControl : MonoBehaviour
             transform.position = StartPoint.transform.position;
             _rigidbody.velocity = new Vector3(0, 0, 0);
             _rigidbody.rotation = _initRotation;
+            _rigidbody.detectCollisions = true;
             _playerStatus.Reset();
+        }
+    }
+
+    private void HandleStoppedPlayer()
+    {
+        if (_playerStatus.GameStatus == GameStatus.Lost)
+        {
+            // just fall off the world for now
+            _rigidbody.detectCollisions = false;
         }
     }
 
@@ -101,6 +111,7 @@ public class PlayerControl : MonoBehaviour
 
         if (!_playerStatus.IsPlaying)
         {
+            HandleStoppedPlayer();
             return;
         }
 

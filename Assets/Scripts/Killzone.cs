@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
-public class EndPoint : MonoBehaviour
+public class Killzone : MonoBehaviour
 {
     private GameObject Player;
 
@@ -31,7 +31,7 @@ public class EndPoint : MonoBehaviour
         if (otherRb != null && otherRb == _playerRb)
         {
             Debug.Log("Entered the winning zone");
-            _playerStatus.PlayerWins();
+            _playerStatus.PlayerLoses();
         }
     }
 }
