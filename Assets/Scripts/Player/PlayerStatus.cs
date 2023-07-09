@@ -59,7 +59,7 @@ public class PlayerStatus : MonoBehaviour
         if (IsPlaying && _pendingStatus == null)
         {
             _pendingStatus = GameStatus.Lost;
-            Invoke("InternalChangeStatus", 0.25f);
+            Invoke("InternalChangeStatus", 0f);
         }
     }
 
