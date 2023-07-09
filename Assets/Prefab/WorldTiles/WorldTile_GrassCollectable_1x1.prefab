@@ -4921,8 +4921,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2558310986952643365}
-  - component: {fileID: 570365908013905907}
-  - component: {fileID: 6890455088349487880}
   - component: {fileID: 2063764110390430734}
   - component: {fileID: 2840718880942248818}
   m_Layer: 0
@@ -4948,56 +4946,6 @@ Transform:
   m_Father: {fileID: 5468956524639330708}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &570365908013905907
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8004389810305058907}
-  m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
---- !u!23 &6890455088349487880
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8004389810305058907}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: 1d7dfe33950b54c67ae274c3800a85a7, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!136 &2063764110390430734
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -5017,10 +4965,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
-  m_Height: 2
+  m_Radius: 3.3108802
+  m_Height: 6.6217604
   m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 0, z: 0.14041513}
 --- !u!114 &2840718880942248818
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5033,7 +4981,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ea6c8eb4f086419cb168ecf597d7c14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Value: 10
+  Meshes:
+  - {fileID: 919132149155446097, guid: 7fa2fbafa2dd2e84b826713e3b44e04a, type: 3}
+  - {fileID: 919132149155446097, guid: 716e6f41bc156e34e96ef95a8c2320c0, type: 3}
+  - {fileID: 919132149155446097, guid: 2c06e90c44e881f40810b7538d2a5e47, type: 3}
+  - {fileID: 919132149155446097, guid: 5da7c0ad18f1a674881f21a06bc03969, type: 3}
+  - {fileID: 919132149155446097, guid: 89dfad9112de5734ba2a4ef90ff1bfe9, type: 3}
+  Score: 0a000000140000001e0000002800000032000000
 --- !u!1001 &4100321420830450060
 PrefabInstance:
   m_ObjectHideFlags: 0
