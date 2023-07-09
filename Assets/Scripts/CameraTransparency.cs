@@ -30,10 +30,7 @@ public class CameraTransparency : MonoBehaviour
 
         foreach (RaycastHit hit in hits)
         {
-            Debug.Log($"Hit {hit.transform.gameObject.name}");
-
             GameObject hitObject = hit.transform.gameObject;
-            
 
             if(!hitObject.TryGetComponent(out Renderer hitRenderer))
             {
