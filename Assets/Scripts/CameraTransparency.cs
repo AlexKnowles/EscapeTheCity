@@ -2,14 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CameraTransparency: MonoBehaviour
+public class CameraTransparency : MonoBehaviour
 {
+    public float distanceAbovePlayer = 0.1f;
     private Transform _player;
     public Material TransparentMaterial;
 
-    private List<GameObject> lastHitObjects = new List<GameObject>();
-    private List<Material> lastHitObjectMaterial = new List<Material>();
-    private RaycastHit[] hits;
+    private List<(GameObject, Material[])> _lastHitObjectWithMaterial = new List<(GameObject, Material[])>();
 
     private void Start()
     {
@@ -18,24 +17,40 @@ public class CameraTransparency: MonoBehaviour
 
     void Update()
     {
-        var abovePlayer = new Vector3(_player.position.x, _player.position.y + 1f, _player.position.z);
+        var abovePlayer = new Vector3(_player.position.x, _player.position.y + distanceAbovePlayer, _player.position.z);
         Vector3 direction = abovePlayer - transform.position;
-        hits = Physics.RaycastAll(transform.position, direction, direction.magnitude);
-        int i = 0;
-        foreach (GameObject lastHitObject in lastHitObjects)
+        RaycastHit[] hits = Physics.RaycastAll(transform.position, direction, direction.magnitude);
+
+        foreach (var lastHitObject in _lastHitObjectWithMaterial)
         {
-            lastHitObject.GetComponent<Renderer>().material = lastHitObjectMaterial[i];
-            i++;
+            lastHitObject.Item1.GetComponent<Renderer>().sharedMaterials = lastHitObject.Item2;
         }
-        lastHitObjects.Clear();
-        lastHitObjectMaterial.Clear();
+
+        _lastHitObjectWithMaterial.Clear();
+
         foreach (RaycastHit hit in hits)
         {
+            Debug.Log($"Hit {hit.transform.gameObject.name}");
+
             GameObject hitObject = hit.transform.gameObject;
-            Material hitMaterial = hitObject.GetComponent<Renderer>().material;
-            lastHitObjects.Add(hitObject);
-            lastHitObjectMaterial.Add(hitMaterial);
-            hitObject.GetComponent<Renderer>().material = TransparentMaterial;
+            
+
+            if(!hitObject.TryGetComponent(out Renderer hitRenderer))
+            {
+                continue;
+            }
+
+            Material[] hitMaterials = hitRenderer.sharedMaterials;
+
+            _lastHitObjectWithMaterial.Add((hitObject, hitMaterials));
+
+            Material[] transparentMaterials = new Material[hitMaterials.Length];
+            for (int i = 0; i < hitMaterials.Length; i++)
+            {
+                transparentMaterials[i] = TransparentMaterial;
+            }
+
+            hitRenderer.sharedMaterials = transparentMaterials;
         }
     }
 }

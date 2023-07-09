@@ -15,7 +15,7 @@ public class Collectable : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        int toUse = Random.Range(0, Meshes.Count + 1);
+        int toUse = Random.Range(0, Meshes.Count);
 
         _value = Score[toUse];
 
