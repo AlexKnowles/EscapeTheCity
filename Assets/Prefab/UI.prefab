@@ -923,7 +923,7 @@ MonoBehaviour:
   ScoreText: {fileID: 5871265762403183181}
   SpeedText: {fileID: 6041601490045782574}
   GameEndText: {fileID: 5129879913935829875}
-  TimeRemainingSlider: {fileID: 0}
+  TimeRemainingSlider: {fileID: 956855272167189171}
   TimeRemainingText: {fileID: 8954170255326008467}
 --- !u!1 &8954170255326008467
 GameObject:
