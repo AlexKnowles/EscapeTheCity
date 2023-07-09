@@ -99,11 +99,14 @@ public class PlayerControl : MonoBehaviour
     {
         //if (!_playerStatus.IsPlaying)
         //{
-            transform.position = StartPoint.transform.position;
-            _rigidbody.velocity = new Vector3(0, 0, 0);
-            _rigidbody.rotation = StartPoint.transform.rotation;
-            _rigidbody.detectCollisions = true;
-            _playerStatus.Reset();
+        transform.position = StartPoint.transform.position;
+        _rigidbody.velocity = new Vector3(0, 0, 0);
+        _rigidbody.rotation = StartPoint.transform.rotation;
+        _rigidbody.detectCollisions = true;
+        _playerStatus.Reset();
+        _accelerating = false;
+        _braking = false;
+        _reversing = false;
         //}
     }
 
