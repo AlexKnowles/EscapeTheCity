@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5604652794329541781}
   - component: {fileID: 3417744271617855405}
   - component: {fileID: 125844333328804938}
+  - component: {fileID: 4540664224668284281}
   m_Layer: 0
   m_Name: World
   m_TagString: Untagged
@@ -46,7 +47,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afb24d4b61185c0499e53ae880c08922, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MapTexture: {fileID: 2800000, guid: 330acde9aef4c484bb47d5ea1ca2db14, type: 3}
+  MapTexture: {fileID: 2800000, guid: ceba0e0a980f40d4f85fee8ffb9512cb, type: 3}
   PrefabTiles:
   - {fileID: 2624896763904660494, guid: a167ae2271bc56443ba83dee41ab3fb9, type: 3}
   - {fileID: 2624896763904660494, guid: a769163428ed7f640b7b79bbf7f6b016, type: 3}
@@ -56,6 +57,7 @@ MonoBehaviour:
   - {fileID: 2624896763904660494, guid: cb88dd09a85954ec4844ba1d08f0ce8d, type: 3}
   - {fileID: 2624896763904660494, guid: 0e0b4a51990f84b579747606f9d24b8f, type: 3}
   - {fileID: 2624896763904660494, guid: bc50fd94e04ad4863bcd929954fd0a32, type: 3}
+  - {fileID: 3059526152166218746, guid: c766dd6642ca2244c8ecc7465b3dd67d, type: 3}
 --- !u!114 &3417744271617855405
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -69,236 +71,196 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Models:
-  - North: 2
-    NorthEast: 0
-    East: 2
-    SouthEast: 0
-    South: 2
-    SouthWest: 0
-    West: 2
-    NorthWest: 0
+  - NorthComparitor: 2
+    NorthEastComparitor: 0
+    EastComparitor: 2
+    SouthEastComparitor: 0
+    SouthComparitor: 1
+    SouthWestComparitor: 0
+    WestComparitor: 1
+    NorthWestComparitor: 0
+    Model: {fileID: 919132149155446097, guid: 34fa72b1ef7ffae41b9be50e8ff69575, type: 3}
+    ModelRotation: 0
+  - NorthComparitor: 1
+    NorthEastComparitor: 0
+    EastComparitor: 2
+    SouthEastComparitor: 0
+    SouthComparitor: 2
+    SouthWestComparitor: 0
+    WestComparitor: 1
+    NorthWestComparitor: 0
+    Model: {fileID: 919132149155446097, guid: 34fa72b1ef7ffae41b9be50e8ff69575, type: 3}
+    ModelRotation: 1
+  - NorthComparitor: 1
+    NorthEastComparitor: 0
+    EastComparitor: 1
+    SouthEastComparitor: 0
+    SouthComparitor: 2
+    SouthWestComparitor: 0
+    WestComparitor: 2
+    NorthWestComparitor: 0
+    Model: {fileID: 919132149155446097, guid: 34fa72b1ef7ffae41b9be50e8ff69575, type: 3}
+    ModelRotation: 2
+  - NorthComparitor: 2
+    NorthEastComparitor: 0
+    EastComparitor: 1
+    SouthEastComparitor: 0
+    SouthComparitor: 1
+    SouthWestComparitor: 0
+    WestComparitor: 2
+    NorthWestComparitor: 0
+    Model: {fileID: 919132149155446097, guid: 34fa72b1ef7ffae41b9be50e8ff69575, type: 3}
+    ModelRotation: 3
+  - NorthComparitor: 2
+    NorthEastComparitor: 0
+    EastComparitor: 2
+    SouthEastComparitor: 0
+    SouthComparitor: 2
+    SouthWestComparitor: 0
+    WestComparitor: 2
+    NorthWestComparitor: 0
+    Model: {fileID: 919132149155446097, guid: 54335e68f5946cf4ca3a4092af20842d, type: 3}
+    ModelRotation: 0
+  - NorthComparitor: 1
+    NorthEastComparitor: 0
+    EastComparitor: 1
+    SouthEastComparitor: 0
+    SouthComparitor: 1
+    SouthWestComparitor: 0
+    WestComparitor: 2
+    NorthWestComparitor: 0
+    Model: {fileID: 919132149155446097, guid: 158aba0f951b6ee49af2a1c913d3558b, type: 3}
+    ModelRotation: 0
+  - NorthComparitor: 2
+    NorthEastComparitor: 0
+    EastComparitor: 1
+    SouthEastComparitor: 0
+    SouthComparitor: 1
+    SouthWestComparitor: 0
+    WestComparitor: 1
+    NorthWestComparitor: 0
+    Model: {fileID: 919132149155446097, guid: 158aba0f951b6ee49af2a1c913d3558b, type: 3}
+    ModelRotation: 1
+  - NorthComparitor: 1
+    NorthEastComparitor: 0
+    EastComparitor: 2
+    SouthEastComparitor: 0
+    SouthComparitor: 1
+    SouthWestComparitor: 0
+    WestComparitor: 1
+    NorthWestComparitor: 0
+    Model: {fileID: 919132149155446097, guid: 158aba0f951b6ee49af2a1c913d3558b, type: 3}
+    ModelRotation: 2
+  - NorthComparitor: 1
+    NorthEastComparitor: 0
+    EastComparitor: 1
+    SouthEastComparitor: 0
+    SouthComparitor: 2
+    SouthWestComparitor: 0
+    WestComparitor: 1
+    NorthWestComparitor: 0
+    Model: {fileID: 919132149155446097, guid: 158aba0f951b6ee49af2a1c913d3558b, type: 3}
+    ModelRotation: 3
+  - NorthComparitor: 2
+    NorthEastComparitor: 0
+    EastComparitor: 2
+    SouthEastComparitor: 0
+    SouthComparitor: 1
+    SouthWestComparitor: 0
+    WestComparitor: 2
+    NorthWestComparitor: 0
+    Model: {fileID: 919132149155446097, guid: 021b6aa170ea85947be70f101e68dd62, type: 3}
+    ModelRotation: 0
+  - NorthComparitor: 2
+    NorthEastComparitor: 0
+    EastComparitor: 2
+    SouthEastComparitor: 0
+    SouthComparitor: 2
+    SouthWestComparitor: 0
+    WestComparitor: 1
+    NorthWestComparitor: 0
+    Model: {fileID: 919132149155446097, guid: 021b6aa170ea85947be70f101e68dd62, type: 3}
+    ModelRotation: 1
+  - NorthComparitor: 1
+    NorthEastComparitor: 0
+    EastComparitor: 2
+    SouthEastComparitor: 0
+    SouthComparitor: 2
+    SouthWestComparitor: 0
+    WestComparitor: 2
+    NorthWestComparitor: 0
+    Model: {fileID: 919132149155446097, guid: 021b6aa170ea85947be70f101e68dd62, type: 3}
+    ModelRotation: 2
+  - NorthComparitor: 2
+    NorthEastComparitor: 0
+    EastComparitor: 1
+    SouthEastComparitor: 0
+    SouthComparitor: 2
+    SouthWestComparitor: 0
+    WestComparitor: 2
+    NorthWestComparitor: 0
+    Model: {fileID: 919132149155446097, guid: 021b6aa170ea85947be70f101e68dd62, type: 3}
+    ModelRotation: 3
+  - NorthComparitor: 4
+    NorthEastComparitor: 0
+    EastComparitor: 2
+    SouthEastComparitor: 0
+    SouthComparitor: 4
+    SouthWestComparitor: 0
+    WestComparitor: 2
+    NorthWestComparitor: 0
+    Model: {fileID: 6044532156298494737, guid: 0410f2da5eff4c34f8f20b29e66735d4, type: 3}
+    ModelRotation: 0
+  - NorthComparitor: 1
+    NorthEastComparitor: 0
+    EastComparitor: 2
+    SouthEastComparitor: 0
+    SouthComparitor: 1
+    SouthWestComparitor: 4
+    WestComparitor: 2
+    NorthWestComparitor: 4
+    Model: {fileID: 1556693443227053902, guid: 7a35a7998dfe253478e82dc12254aa8b, type: 3}
+    ModelRotation: 0
+  - NorthComparitor: 1
+    NorthEastComparitor: 4
+    EastComparitor: 2
+    SouthEastComparitor: 4
+    SouthComparitor: 1
+    SouthWestComparitor: 0
+    WestComparitor: 2
+    NorthWestComparitor: 0
+    Model: {fileID: 1556693443227053902, guid: 7a35a7998dfe253478e82dc12254aa8b, type: 3}
+    ModelRotation: 2
+  - NorthComparitor: 1
+    NorthEastComparitor: 0
+    EastComparitor: 2
+    SouthEastComparitor: 0
+    SouthComparitor: 1
+    SouthWestComparitor: 0
+    WestComparitor: 2
+    NorthWestComparitor: 0
+    Model: {fileID: 919132149155446097, guid: b9d94fcc0d6856741a305231b7ea8b9a, type: 3}
+    ModelRotation: 0
+  - NorthComparitor: 2
+    NorthEastComparitor: 0
+    EastComparitor: 1
+    SouthEastComparitor: 0
+    SouthComparitor: 2
+    SouthWestComparitor: 0
+    WestComparitor: 1
+    NorthWestComparitor: 0
+    Model: {fileID: 919132149155446097, guid: b9d94fcc0d6856741a305231b7ea8b9a, type: 3}
+    ModelRotation: 1
+  - NorthComparitor: 1
+    NorthEastComparitor: 0
+    EastComparitor: 1
+    SouthEastComparitor: 0
+    SouthComparitor: 1
+    SouthWestComparitor: 0
+    WestComparitor: 1
+    NorthWestComparitor: 0
     Model: {fileID: 919132149155446097, guid: d197d2832c7a46841bcb473269b1e176, type: 3}
     ModelRotation: 0
-  - North: 2
-    NorthEast: 0
-    East: 2
-    SouthEast: 0
-    South: 2
-    SouthWest: 0
-    West: 1
-    NorthWest: 0
-    Model: {fileID: 919132149155446097, guid: 158aba0f951b6ee49af2a1c913d3558b, type: 3}
-    ModelRotation: 0
-  - North: 1
-    NorthEast: 0
-    East: 2
-    SouthEast: 0
-    South: 2
-    SouthWest: 0
-    West: 2
-    NorthWest: 0
-    Model: {fileID: 919132149155446097, guid: 158aba0f951b6ee49af2a1c913d3558b, type: 3}
-    ModelRotation: 1
-  - North: 2
-    NorthEast: 0
-    East: 1
-    SouthEast: 0
-    South: 2
-    SouthWest: 0
-    West: 2
-    NorthWest: 0
-    Model: {fileID: 919132149155446097, guid: 158aba0f951b6ee49af2a1c913d3558b, type: 3}
-    ModelRotation: 2
-  - North: 2
-    NorthEast: 0
-    East: 2
-    SouthEast: 0
-    South: 1
-    SouthWest: 0
-    West: 2
-    NorthWest: 0
-    Model: {fileID: 919132149155446097, guid: 158aba0f951b6ee49af2a1c913d3558b, type: 3}
-    ModelRotation: 3
-  - North: 2
-    NorthEast: 0
-    East: 2
-    SouthEast: 0
-    South: 1
-    SouthWest: 0
-    West: 2
-    NorthWest: 0
-    Model: {fileID: 919132149155446097, guid: 158aba0f951b6ee49af2a1c913d3558b, type: 3}
-    ModelRotation: 3
-  - North: 1
-    NorthEast: 0
-    East: 1
-    SouthEast: 0
-    South: 2
-    SouthWest: 0
-    West: 1
-    NorthWest: 0
-    Model: {fileID: 919132149155446097, guid: 021b6aa170ea85947be70f101e68dd62, type: 3}
-    ModelRotation: 0
-  - North: 1
-    NorthEast: 0
-    East: 1
-    SouthEast: 0
-    South: 2
-    SouthWest: 0
-    West: 1
-    NorthWest: 0
-    Model: {fileID: 919132149155446097, guid: 54335e68f5946cf4ca3a4092af20842d, type: 3}
-    ModelRotation: 0
-  - North: 1
-    NorthEast: 0
-    East: 1
-    SouthEast: 0
-    South: 1
-    SouthWest: 0
-    West: 2
-    NorthWest: 0
-    Model: {fileID: 919132149155446097, guid: 021b6aa170ea85947be70f101e68dd62, type: 3}
-    ModelRotation: 1
-  - North: 2
-    NorthEast: 0
-    East: 1
-    SouthEast: 0
-    South: 1
-    SouthWest: 0
-    West: 1
-    NorthWest: 0
-    Model: {fileID: 919132149155446097, guid: 021b6aa170ea85947be70f101e68dd62, type: 3}
-    ModelRotation: 2
-  - North: 1
-    NorthEast: 0
-    East: 2
-    SouthEast: 0
-    South: 1
-    SouthWest: 0
-    West: 1
-    NorthWest: 0
-    Model: {fileID: 919132149155446097, guid: 021b6aa170ea85947be70f101e68dd62, type: 3}
-    ModelRotation: 3
-  - North: 1
-    NorthEast: 0
-    East: 1
-    SouthEast: 0
-    South: 1
-    SouthWest: 0
-    West: 1
-    NorthWest: 0
-    Model: {fileID: 919132149155446097, guid: 54335e68f5946cf4ca3a4092af20842d, type: 3}
-    ModelRotation: 0
-  - North: 2
-    NorthEast: 2
-    East: 1
-    SouthEast: 2
-    South: 2
-    SouthWest: 2
-    West: 1
-    NorthWest: 2
-    Model: {fileID: 919132149155446097, guid: b9d94fcc0d6856741a305231b7ea8b9a, type: 3}
-    ModelRotation: 0
-  - North: 1
-    NorthEast: 2
-    East: 2
-    SouthEast: 2
-    South: 1
-    SouthWest: 2
-    West: 2
-    NorthWest: 2
-    Model: {fileID: 919132149155446097, guid: b9d94fcc0d6856741a305231b7ea8b9a, type: 3}
-    ModelRotation: 1
-  - North: 1
-    NorthEast: 0
-    East: 1
-    SouthEast: 0
-    South: 2
-    SouthWest: 0
-    West: 2
-    NorthWest: 0
-    Model: {fileID: 919132149155446097, guid: 34fa72b1ef7ffae41b9be50e8ff69575, type: 3}
-    ModelRotation: 0
-  - North: 2
-    NorthEast: 0
-    East: 1
-    SouthEast: 0
-    South: 1
-    SouthWest: 0
-    West: 2
-    NorthWest: 0
-    Model: {fileID: 919132149155446097, guid: 34fa72b1ef7ffae41b9be50e8ff69575, type: 3}
-    ModelRotation: 1
-  - North: 2
-    NorthEast: 0
-    East: 2
-    SouthEast: 0
-    South: 1
-    SouthWest: 0
-    West: 1
-    NorthWest: 0
-    Model: {fileID: 919132149155446097, guid: 34fa72b1ef7ffae41b9be50e8ff69575, type: 3}
-    ModelRotation: 2
-  - North: 1
-    NorthEast: 0
-    East: 2
-    SouthEast: 0
-    South: 2
-    SouthWest: 0
-    West: 1
-    NorthWest: 0
-    Model: {fileID: 919132149155446097, guid: 34fa72b1ef7ffae41b9be50e8ff69575, type: 3}
-    ModelRotation: 3
-  - North: 3
-    NorthEast: 0
-    East: 1
-    SouthEast: 0
-    South: 3
-    SouthWest: 0
-    West: 1
-    NorthWest: 0
-    Model: {fileID: 919132149155446097, guid: 1691c5bbd212b2947b3f9f1f8ff81310, type: 3}
-    ModelRotation: 0
-  - North: 2
-    NorthEast: 2
-    East: 1
-    SouthEast: 2
-    South: 2
-    SouthWest: 3
-    West: 1
-    NorthWest: 3
-    Model: {fileID: 1556693443227053902, guid: 7a35a7998dfe253478e82dc12254aa8b, type: 3}
-    ModelRotation: 0
-  - North: 2
-    NorthEast: 3
-    East: 1
-    SouthEast: 3
-    South: 2
-    SouthWest: 2
-    West: 1
-    NorthWest: 2
-    Model: {fileID: 1556693443227053902, guid: 7a35a7998dfe253478e82dc12254aa8b, type: 3}
-    ModelRotation: 2
-  - North: 2
-    NorthEast: 0
-    East: 1
-    SouthEast: 0
-    South: 2
-    SouthWest: 0
-    West: 1
-    NorthWest: 0
-    Model: {fileID: 919132149155446097, guid: b9d94fcc0d6856741a305231b7ea8b9a, type: 3}
-    ModelRotation: 2
-  - North: 1
-    NorthEast: 0
-    East: 2
-    SouthEast: 0
-    South: 1
-    SouthWest: 0
-    West: 2
-    NorthWest: 0
-    Model: {fileID: 919132149155446097, guid: b9d94fcc0d6856741a305231b7ea8b9a, type: 3}
-    ModelRotation: 1
 --- !u!114 &125844333328804938
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -312,373 +274,379 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Models:
-  - North: 3
-    NorthEast: 3
-    East: 3
-    SouthEast: 3
-    South: 3
-    SouthWest: 3
-    West: 3
-    NorthWest: 3
+  - NorthComparitor: 4
+    NorthEastComparitor: 4
+    EastComparitor: 4
+    SouthEastComparitor: 4
+    SouthComparitor: 4
+    SouthWestComparitor: 4
+    WestComparitor: 4
+    NorthWestComparitor: 4
     Model: {fileID: 919132149155446097, guid: 00472dd2c148d9c49a8ac107e5b51a04, type: 3}
     ModelRotation: 0
-  - North: 2
-    NorthEast: 0
-    East: 3
-    SouthEast: 2
-    South: 3
-    SouthWest: 0
-    West: 2
-    NorthWest: 2
+  - NorthComparitor: 1
+    NorthEastComparitor: 1
+    EastComparitor: 4
+    SouthEastComparitor: 1
+    SouthComparitor: 4
+    SouthWestComparitor: 1
+    WestComparitor: 1
+    NorthWestComparitor: 1
     Model: {fileID: 919132149155446097, guid: 49e4af2492c0bb84294e9a562fc2d1e4, type: 3}
     ModelRotation: 0
-  - North: 2
-    NorthEast: 2
-    East: 2
-    SouthEast: 2
-    South: 3
-    SouthWest: 2
-    West: 3
-    NorthWest: 2
+  - NorthComparitor: 1
+    NorthEastComparitor: 1
+    EastComparitor: 1
+    SouthEastComparitor: 1
+    SouthComparitor: 4
+    SouthWestComparitor: 1
+    WestComparitor: 4
+    NorthWestComparitor: 1
     Model: {fileID: 919132149155446097, guid: 49e4af2492c0bb84294e9a562fc2d1e4, type: 3}
     ModelRotation: 1
-  - North: 3
-    NorthEast: 2
-    East: 2
-    SouthEast: 2
-    South: 2
-    SouthWest: 2
-    West: 3
-    NorthWest: 2
+  - NorthComparitor: 4
+    NorthEastComparitor: 1
+    EastComparitor: 1
+    SouthEastComparitor: 1
+    SouthComparitor: 1
+    SouthWestComparitor: 1
+    WestComparitor: 4
+    NorthWestComparitor: 1
     Model: {fileID: 919132149155446097, guid: 49e4af2492c0bb84294e9a562fc2d1e4, type: 3}
     ModelRotation: 2
-  - North: 3
-    NorthEast: 2
-    East: 3
-    SouthEast: 2
-    South: 2
-    SouthWest: 2
-    West: 2
-    NorthWest: 2
+  - NorthComparitor: 4
+    NorthEastComparitor: 1
+    EastComparitor: 4
+    SouthEastComparitor: 1
+    SouthComparitor: 1
+    SouthWestComparitor: 1
+    WestComparitor: 1
+    NorthWestComparitor: 1
     Model: {fileID: 919132149155446097, guid: 49e4af2492c0bb84294e9a562fc2d1e4, type: 3}
     ModelRotation: 3
-  - North: 2
-    NorthEast: 0
-    East: 3
-    SouthEast: 3
-    South: 3
-    SouthWest: 0
-    West: 2
-    NorthWest: 2
+  - NorthComparitor: 1
+    NorthEastComparitor: 0
+    EastComparitor: 4
+    SouthEastComparitor: 4
+    SouthComparitor: 4
+    SouthWestComparitor: 0
+    WestComparitor: 1
+    NorthWestComparitor: 1
     Model: {fileID: 919132149155446097, guid: d78ae36e7e51f8f409074fb3c39aa472, type: 3}
     ModelRotation: 0
-  - North: 2
-    NorthEast: 2
-    East: 2
-    SouthEast: 0
-    South: 3
-    SouthWest: 3
-    West: 3
-    NorthWest: 0
+  - NorthComparitor: 1
+    NorthEastComparitor: 1
+    EastComparitor: 1
+    SouthEastComparitor: 0
+    SouthComparitor: 4
+    SouthWestComparitor: 4
+    WestComparitor: 4
+    NorthWestComparitor: 0
     Model: {fileID: 919132149155446097, guid: d78ae36e7e51f8f409074fb3c39aa472, type: 3}
     ModelRotation: 1
-  - North: 3
-    NorthEast: 0
-    East: 2
-    SouthEast: 2
-    South: 2
-    SouthWest: 0
-    West: 3
-    NorthWest: 3
+  - NorthComparitor: 4
+    NorthEastComparitor: 0
+    EastComparitor: 1
+    SouthEastComparitor: 1
+    SouthComparitor: 1
+    SouthWestComparitor: 0
+    WestComparitor: 4
+    NorthWestComparitor: 4
     Model: {fileID: 919132149155446097, guid: d78ae36e7e51f8f409074fb3c39aa472, type: 3}
     ModelRotation: 2
-  - North: 3
-    NorthEast: 3
-    East: 3
-    SouthEast: 0
-    South: 2
-    SouthWest: 2
-    West: 2
-    NorthWest: 0
+  - NorthComparitor: 4
+    NorthEastComparitor: 4
+    EastComparitor: 4
+    SouthEastComparitor: 0
+    SouthComparitor: 1
+    SouthWestComparitor: 1
+    WestComparitor: 1
+    NorthWestComparitor: 0
     Model: {fileID: 919132149155446097, guid: d78ae36e7e51f8f409074fb3c39aa472, type: 3}
     ModelRotation: 3
-  - North: 3
-    NorthEast: 3
-    East: 3
-    SouthEast: 3
-    South: 3
-    SouthWest: 2
-    West: 3
-    NorthWest: 3
+  - NorthComparitor: 4
+    NorthEastComparitor: 4
+    EastComparitor: 4
+    SouthEastComparitor: 4
+    SouthComparitor: 4
+    SouthWestComparitor: 1
+    WestComparitor: 4
+    NorthWestComparitor: 4
     Model: {fileID: 919132149155446097, guid: 023f86e45bf60034c92484a6aeffa5c1, type: 3}
     ModelRotation: 0
-  - North: 3
-    NorthEast: 3
-    East: 3
-    SouthEast: 3
-    South: 3
-    SouthWest: 3
-    West: 3
-    NorthWest: 2
+  - NorthComparitor: 4
+    NorthEastComparitor: 4
+    EastComparitor: 4
+    SouthEastComparitor: 4
+    SouthComparitor: 4
+    SouthWestComparitor: 4
+    WestComparitor: 4
+    NorthWestComparitor: 1
     Model: {fileID: 919132149155446097, guid: 023f86e45bf60034c92484a6aeffa5c1, type: 3}
     ModelRotation: 1
-  - North: 3
-    NorthEast: 2
-    East: 3
-    SouthEast: 3
-    South: 3
-    SouthWest: 3
-    West: 3
-    NorthWest: 3
+  - NorthComparitor: 4
+    NorthEastComparitor: 1
+    EastComparitor: 4
+    SouthEastComparitor: 4
+    SouthComparitor: 4
+    SouthWestComparitor: 4
+    WestComparitor: 4
+    NorthWestComparitor: 4
     Model: {fileID: 919132149155446097, guid: 023f86e45bf60034c92484a6aeffa5c1, type: 3}
     ModelRotation: 2
-  - North: 3
-    NorthEast: 3
-    East: 3
-    SouthEast: 2
-    South: 3
-    SouthWest: 3
-    West: 3
-    NorthWest: 3
+  - NorthComparitor: 4
+    NorthEastComparitor: 4
+    EastComparitor: 4
+    SouthEastComparitor: 1
+    SouthComparitor: 4
+    SouthWestComparitor: 4
+    WestComparitor: 4
+    NorthWestComparitor: 4
     Model: {fileID: 919132149155446097, guid: 023f86e45bf60034c92484a6aeffa5c1, type: 3}
     ModelRotation: 3
-  - North: 3
-    NorthEast: 2
-    East: 3
-    SouthEast: 2
-    South: 3
-    SouthWest: 2
-    West: 3
-    NorthWest: 2
+  - NorthComparitor: 4
+    NorthEastComparitor: 1
+    EastComparitor: 4
+    SouthEastComparitor: 1
+    SouthComparitor: 4
+    SouthWestComparitor: 1
+    WestComparitor: 4
+    NorthWestComparitor: 1
     Model: {fileID: 919132149155446097, guid: f6b8fb2b537aff14db6b7dce5f0f937b, type: 3}
     ModelRotation: 0
-  - North: 2
-    NorthEast: 0
-    East: 2
-    SouthEast: 0
-    South: 3
-    SouthWest: 0
-    West: 2
-    NorthWest: 0
+  - NorthComparitor: 1
+    NorthEastComparitor: 0
+    EastComparitor: 1
+    SouthEastComparitor: 0
+    SouthComparitor: 4
+    SouthWestComparitor: 0
+    WestComparitor: 1
+    NorthWestComparitor: 0
     Model: {fileID: 919132149155446097, guid: 2f2deea4d0263ea4dbc184c4ce46337c, type: 3}
     ModelRotation: 0
-  - North: 2
-    NorthEast: 0
-    East: 2
-    SouthEast: 0
-    South: 2
-    SouthWest: 0
-    West: 3
-    NorthWest: 0
+  - NorthComparitor: 1
+    NorthEastComparitor: 0
+    EastComparitor: 1
+    SouthEastComparitor: 0
+    SouthComparitor: 1
+    SouthWestComparitor: 0
+    WestComparitor: 4
+    NorthWestComparitor: 0
     Model: {fileID: 919132149155446097, guid: 2f2deea4d0263ea4dbc184c4ce46337c, type: 3}
     ModelRotation: 1
-  - North: 3
-    NorthEast: 0
-    East: 2
-    SouthEast: 0
-    South: 2
-    SouthWest: 0
-    West: 2
-    NorthWest: 0
+  - NorthComparitor: 4
+    NorthEastComparitor: 0
+    EastComparitor: 1
+    SouthEastComparitor: 0
+    SouthComparitor: 1
+    SouthWestComparitor: 0
+    WestComparitor: 1
+    NorthWestComparitor: 0
     Model: {fileID: 919132149155446097, guid: 2f2deea4d0263ea4dbc184c4ce46337c, type: 3}
     ModelRotation: 2
-  - North: 2
-    NorthEast: 0
-    East: 3
-    SouthEast: 0
-    South: 2
-    SouthWest: 0
-    West: 2
-    NorthWest: 0
+  - NorthComparitor: 1
+    NorthEastComparitor: 0
+    EastComparitor: 4
+    SouthEastComparitor: 0
+    SouthComparitor: 1
+    SouthWestComparitor: 0
+    WestComparitor: 1
+    NorthWestComparitor: 0
     Model: {fileID: 919132149155446097, guid: 2f2deea4d0263ea4dbc184c4ce46337c, type: 3}
     ModelRotation: 3
-  - North: 3
-    NorthEast: 2
-    East: 2
-    SouthEast: 2
-    South: 3
-    SouthWest: 2
-    West: 2
-    NorthWest: 2
-    Model: {fileID: 919132149155446097, guid: 9bd426cfb81df46499f991cffc6368fc, type: 3}
-    ModelRotation: 0
-  - North: 3
-    NorthEast: 0
-    East: 2
-    SouthEast: 0
-    South: 3
-    SouthWest: 0
-    West: 2
-    NorthWest: 0
-    Model: {fileID: 919132149155446097, guid: 9bd426cfb81df46499f991cffc6368fc, type: 3}
-    ModelRotation: 2
-  - North: 2
-    NorthEast: 0
-    East: 3
-    SouthEast: 0
-    South: 2
-    SouthWest: 0
-    West: 3
-    NorthWest: 0
+  - NorthComparitor: 1
+    NorthEastComparitor: 0
+    EastComparitor: 4
+    SouthEastComparitor: 0
+    SouthComparitor: 1
+    SouthWestComparitor: 0
+    WestComparitor: 4
+    NorthWestComparitor: 0
     Model: {fileID: 919132149155446097, guid: 9bd426cfb81df46499f991cffc6368fc, type: 3}
     ModelRotation: 1
-  - North: 2
-    NorthEast: 0
-    East: 3
-    SouthEast: 3
-    South: 3
-    SouthWest: 3
-    West: 3
-    NorthWest: 0
+  - NorthComparitor: 4
+    NorthEastComparitor: 0
+    EastComparitor: 1
+    SouthEastComparitor: 0
+    SouthComparitor: 4
+    SouthWestComparitor: 0
+    WestComparitor: 1
+    NorthWestComparitor: 0
+    Model: {fileID: 919132149155446097, guid: 9bd426cfb81df46499f991cffc6368fc, type: 3}
+    ModelRotation: 2
+  - NorthComparitor: 1
+    NorthEastComparitor: 0
+    EastComparitor: 4
+    SouthEastComparitor: 4
+    SouthComparitor: 4
+    SouthWestComparitor: 4
+    WestComparitor: 4
+    NorthWestComparitor: 0
     Model: {fileID: 919132149155446097, guid: ce5dfc945c8811c468889090b7a77ce5, type: 3}
     ModelRotation: 0
-  - North: 3
-    NorthEast: 0
-    East: 2
-    SouthEast: 0
-    South: 3
-    SouthWest: 3
-    West: 3
-    NorthWest: 3
+  - NorthComparitor: 4
+    NorthEastComparitor: 0
+    EastComparitor: 1
+    SouthEastComparitor: 0
+    SouthComparitor: 4
+    SouthWestComparitor: 4
+    WestComparitor: 4
+    NorthWestComparitor: 4
     Model: {fileID: 919132149155446097, guid: ce5dfc945c8811c468889090b7a77ce5, type: 3}
     ModelRotation: 1
-  - North: 3
-    NorthEast: 3
-    East: 3
-    SouthEast: 0
-    South: 2
-    SouthWest: 0
-    West: 3
-    NorthWest: 3
+  - NorthComparitor: 4
+    NorthEastComparitor: 4
+    EastComparitor: 4
+    SouthEastComparitor: 0
+    SouthComparitor: 1
+    SouthWestComparitor: 0
+    WestComparitor: 4
+    NorthWestComparitor: 4
     Model: {fileID: 919132149155446097, guid: ce5dfc945c8811c468889090b7a77ce5, type: 3}
     ModelRotation: 2
-  - North: 3
-    NorthEast: 3
-    East: 3
-    SouthEast: 3
-    South: 3
-    SouthWest: 0
-    West: 2
-    NorthWest: 0
+  - NorthComparitor: 4
+    NorthEastComparitor: 4
+    EastComparitor: 4
+    SouthEastComparitor: 4
+    SouthComparitor: 4
+    SouthWestComparitor: 0
+    WestComparitor: 1
+    NorthWestComparitor: 0
     Model: {fileID: 919132149155446097, guid: ce5dfc945c8811c468889090b7a77ce5, type: 3}
     ModelRotation: 3
-  - North: 2
-    NorthEast: 2
-    East: 3
-    SouthEast: 2
-    South: 3
-    SouthWest: 2
-    West: 3
-    NorthWest: 2
+  - NorthComparitor: 1
+    NorthEastComparitor: 0
+    EastComparitor: 4
+    SouthEastComparitor: 1
+    SouthComparitor: 4
+    SouthWestComparitor: 1
+    WestComparitor: 4
+    NorthWestComparitor: 0
     Model: {fileID: 919132149155446097, guid: a21ffb02abb3199499580fb2fb1683b4, type: 3}
     ModelRotation: 0
-  - North: 3
-    NorthEast: 2
-    East: 2
-    SouthEast: 2
-    South: 3
-    SouthWest: 2
-    West: 3
-    NorthWest: 2
+  - NorthComparitor: 4
+    NorthEastComparitor: 0
+    EastComparitor: 1
+    SouthEastComparitor: 0
+    SouthComparitor: 4
+    SouthWestComparitor: 1
+    WestComparitor: 4
+    NorthWestComparitor: 1
     Model: {fileID: 919132149155446097, guid: a21ffb02abb3199499580fb2fb1683b4, type: 3}
     ModelRotation: 1
-  - North: 3
-    NorthEast: 2
-    East: 3
-    SouthEast: 2
-    South: 2
-    SouthWest: 2
-    West: 3
-    NorthWest: 2
+  - NorthComparitor: 4
+    NorthEastComparitor: 1
+    EastComparitor: 4
+    SouthEastComparitor: 0
+    SouthComparitor: 1
+    SouthWestComparitor: 0
+    WestComparitor: 4
+    NorthWestComparitor: 1
     Model: {fileID: 919132149155446097, guid: a21ffb02abb3199499580fb2fb1683b4, type: 3}
     ModelRotation: 2
-  - North: 3
-    NorthEast: 2
-    East: 3
-    SouthEast: 2
-    South: 3
-    SouthWest: 2
-    West: 2
-    NorthWest: 2
+  - NorthComparitor: 4
+    NorthEastComparitor: 1
+    EastComparitor: 4
+    SouthEastComparitor: 1
+    SouthComparitor: 4
+    SouthWestComparitor: 0
+    WestComparitor: 1
+    NorthWestComparitor: 0
     Model: {fileID: 919132149155446097, guid: a21ffb02abb3199499580fb2fb1683b4, type: 3}
     ModelRotation: 3
-  - North: 2
-    NorthEast: 2
-    East: 2
-    SouthEast: 2
-    South: 2
-    SouthWest: 2
-    West: 2
-    NorthWest: 2
+  - NorthComparitor: 1
+    NorthEastComparitor: 1
+    EastComparitor: 1
+    SouthEastComparitor: 1
+    SouthComparitor: 1
+    SouthWestComparitor: 1
+    WestComparitor: 1
+    NorthWestComparitor: 1
     Model: {fileID: 919132149155446097, guid: 9a0bc13f271a76743bcd149a1e0f224b, type: 3}
     ModelRotation: 0
-  - North: 1
-    NorthEast: 1
-    East: 3
-    SouthEast: 3
-    South: 3
-    SouthWest: 3
-    West: 3
-    NorthWest: 1
+  - NorthComparitor: 0
+    NorthEastComparitor: 0
+    EastComparitor: 0
+    SouthEastComparitor: 0
+    SouthComparitor: 0
+    SouthWestComparitor: 0
+    WestComparitor: 0
+    NorthWestComparitor: 0
     Model: {fileID: 919132149155446097, guid: 00472dd2c148d9c49a8ac107e5b51a04, type: 3}
     ModelRotation: 0
-  - North: 3
-    NorthEast: 3
-    East: 3
-    SouthEast: 1
-    South: 1
-    SouthWest: 1
-    West: 3
-    NorthWest: 3
+  - NorthComparitor: 0
+    NorthEastComparitor: 0
+    EastComparitor: 0
+    SouthEastComparitor: 0
+    SouthComparitor: 0
+    SouthWestComparitor: 0
+    WestComparitor: 0
+    NorthWestComparitor: 0
     Model: {fileID: 919132149155446097, guid: 00472dd2c148d9c49a8ac107e5b51a04, type: 3}
     ModelRotation: 0
-  - North: 1
-    NorthEast: 1
-    East: 3
-    SouthEast: 3
-    South: 3
-    SouthWest: 3
-    West: 2
-    NorthWest: 1
+  - NorthComparitor: 0
+    NorthEastComparitor: 0
+    EastComparitor: 0
+    SouthEastComparitor: 0
+    SouthComparitor: 0
+    SouthWestComparitor: 0
+    WestComparitor: 0
+    NorthWestComparitor: 0
     Model: {fileID: 919132149155446097, guid: ce5dfc945c8811c468889090b7a77ce5, type: 3}
     ModelRotation: 3
-  - North: 3
-    NorthEast: 3
-    East: 3
-    SouthEast: 1
-    South: 1
-    SouthWest: 1
-    West: 2
-    NorthWest: 2
+  - NorthComparitor: 0
+    NorthEastComparitor: 0
+    EastComparitor: 0
+    SouthEastComparitor: 0
+    SouthComparitor: 0
+    SouthWestComparitor: 0
+    WestComparitor: 0
+    NorthWestComparitor: 0
     Model: {fileID: 919132149155446097, guid: ce5dfc945c8811c468889090b7a77ce5, type: 3}
     ModelRotation: 3
-  - North: 3
-    NorthEast: 2
-    East: 2
-    SouthEast: 1
-    South: 1
-    SouthWest: 1
-    West: 3
-    NorthWest: 3
+  - NorthComparitor: 0
+    NorthEastComparitor: 0
+    EastComparitor: 0
+    SouthEastComparitor: 0
+    SouthComparitor: 0
+    SouthWestComparitor: 0
+    WestComparitor: 0
+    NorthWestComparitor: 0
     Model: {fileID: 919132149155446097, guid: ce5dfc945c8811c468889090b7a77ce5, type: 3}
     ModelRotation: 1
-  - North: 1
-    NorthEast: 1
-    East: 2
-    SouthEast: 2
-    South: 2
-    SouthWest: 3
-    West: 3
-    NorthWest: 1
+  - NorthComparitor: 0
+    NorthEastComparitor: 0
+    EastComparitor: 0
+    SouthEastComparitor: 0
+    SouthComparitor: 0
+    SouthWestComparitor: 0
+    WestComparitor: 0
+    NorthWestComparitor: 0
     Model: {fileID: 919132149155446097, guid: d78ae36e7e51f8f409074fb3c39aa472, type: 3}
     ModelRotation: 2
-  - North: 1
-    NorthEast: 1
-    East: 3
-    SouthEast: 2
-    South: 3
-    SouthWest: 3
-    West: 3
-    NorthWest: 1
+  - NorthComparitor: 0
+    NorthEastComparitor: 0
+    EastComparitor: 0
+    SouthEastComparitor: 0
+    SouthComparitor: 0
+    SouthWestComparitor: 0
+    WestComparitor: 0
+    NorthWestComparitor: 0
     Model: {fileID: 919132149155446097, guid: 023f86e45bf60034c92484a6aeffa5c1, type: 3}
     ModelRotation: 3
+--- !u!114 &4540664224668284281
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 307400840062921916}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 286ec89ff6c97a64e83856c3b0b06c0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Buildings:
+  - {fileID: 5624812487181846415, guid: 1e01ef3dc7e60b7429d6238eaccdf0f2, type: 3}
+  - {fileID: 990986246150982474, guid: 1bd711dfa935e2740b3504c950971750, type: 3}
+  - {fileID: 1690592778930173334, guid: 963dafa1dacc4684297df786c87dff4a, type: 3}

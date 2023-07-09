@@ -3,5 +3,6 @@ public enum WorldTileType
     None,
     Road,
     Grass,
-    Water
+    Water,
+    Pavement
 }

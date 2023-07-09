@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
@@ -20,9 +17,9 @@ public class WorldRoadConnector : MonoBehaviour
             Vector2 mapPosition = waterTile.Key;
             WorldTile worldTile = waterTile.Value;
 
-            WorldTileTypeModel surroundingTiles = worldGenerator.GetWorldTileTypesAround(mapPosition);
+            WorldTileSurroundingTypes surroundingTiles = worldGenerator.GetWorldTileTypesAround(mapPosition);
 
-            WorldTileTypeModel matchingModel = Models.FirstOrDefault(w => w.MatchSurrounding(surroundingTiles));
+            WorldTileTypeModel matchingModel = Models.FirstOrDefault(w => w.MatchSurrounding(worldTile.Type, surroundingTiles));
 
             if (matchingModel != null)
             {

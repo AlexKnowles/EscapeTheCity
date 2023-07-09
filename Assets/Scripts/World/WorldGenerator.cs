@@ -49,11 +49,12 @@ public class WorldGenerator : MonoBehaviour
 
         GetComponent<WorldWaterConnector>().Connect(this);
         GetComponent<WorldRoadConnector>().Connect(this);
+        GetComponent<WorldBuildingPlacer>().PlaceBuildings(this);
     }
 
-    public WorldTileTypeModel GetWorldTileTypesAround(Vector2 mapPosition)
+    public WorldTileSurroundingTypes GetWorldTileTypesAround(Vector2 mapPosition)
     {
-        WorldTileTypeModel result = new();
+        WorldTileSurroundingTypes result = new();
 
         if(AllTiles.TryGetValue(mapPosition + Vector2.up, out WorldTile northTile))
         {

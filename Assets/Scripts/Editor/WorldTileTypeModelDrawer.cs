@@ -23,33 +23,33 @@ public class WorldTileTypeModelDrawer : PropertyDrawer
 
         Rect tileRect = new Rect(gridRect.x, gridRect.y, gridItemWidth, gridItemHeight);
 
-        DrawTileField(tileRect, property.FindPropertyRelative("NorthWest"));
+        DrawTileField(tileRect, property.FindPropertyRelative("NorthWestComparitor"));
         tileRect.x += gridItemWidth;
 
-        DrawTileField(tileRect, property.FindPropertyRelative("North"));
+        DrawTileField(tileRect, property.FindPropertyRelative("NorthComparitor"));
         tileRect.x += gridItemWidth;
 
-        DrawTileField(tileRect, property.FindPropertyRelative("NorthEast"));
+        DrawTileField(tileRect, property.FindPropertyRelative("NorthEastComparitor"));
         tileRect.y += gridItemHeight;
         tileRect.x = gridRect.x;
 
-        DrawTileField(tileRect, property.FindPropertyRelative("West"));
+        DrawTileField(tileRect, property.FindPropertyRelative("WestComparitor"));
         tileRect.x += gridItemWidth;
 
         DrawTileField(tileRect, property.FindPropertyRelative("Model"));
         tileRect.x += gridItemWidth;
 
-        DrawTileField(tileRect, property.FindPropertyRelative("East"));
+        DrawTileField(tileRect, property.FindPropertyRelative("EastComparitor"));
         tileRect.y += gridItemHeight;
         tileRect.x = gridRect.x;
 
-        DrawTileField(tileRect, property.FindPropertyRelative("SouthWest"));
+        DrawTileField(tileRect, property.FindPropertyRelative("SouthWestComparitor"));
         tileRect.x += gridItemWidth;
 
-        DrawTileField(tileRect, property.FindPropertyRelative("South"));
+        DrawTileField(tileRect, property.FindPropertyRelative("SouthComparitor"));
         tileRect.x += gridItemWidth;
 
-        DrawTileField(tileRect, property.FindPropertyRelative("SouthEast"));
+        DrawTileField(tileRect, property.FindPropertyRelative("SouthEastComparitor"));
         tileRect.y += gridItemHeight;
         tileRect.x = gridRect.x;
 
