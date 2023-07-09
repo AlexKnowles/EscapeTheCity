@@ -24840,6 +24840,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Points: 0
+  Lifetime: 45
 --- !u!114 &669986027888448996
 MonoBehaviour:
   m_ObjectHideFlags: 0

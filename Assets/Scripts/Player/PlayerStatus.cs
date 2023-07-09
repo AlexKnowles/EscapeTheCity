@@ -55,7 +55,7 @@ public class PlayerStatus : MonoBehaviour
 
     public int Points = 0;
 
-    public float Lifetime = 30f;
+    public float Lifetime = 45f;
 
     private float _timeRemaining;
 
