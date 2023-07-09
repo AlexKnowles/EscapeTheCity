@@ -29,6 +29,11 @@ public class Collectable : MonoBehaviour
         
     }
 
+    public void Reset()
+    {
+        gameObject.SetActive(true);
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         var playerStatus = other.GetComponent<PlayerStatus>();
@@ -37,7 +42,7 @@ public class Collectable : MonoBehaviour
         {
             Debug.Log("Points mean prizes");
             playerStatus.AdjustPoints(_value);
-            Destroy(gameObject);
+            gameObject.SetActive(false);
         }
     }
 }

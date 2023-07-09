@@ -8,6 +8,7 @@ public class UI : MonoBehaviour
     private TextMeshProUGUI _scoreText;
     private TextMeshProUGUI _speedText;
     private TextMeshProUGUI _gameOverText;
+    private TextMeshProUGUI _timeRemainingText;
 
     private PlayerStatus _playerStatus;
     private PlayerControl _playerControl;
@@ -16,6 +17,7 @@ public class UI : MonoBehaviour
     public GameObject ScoreText;
     public GameObject SpeedText;
     public GameObject GameEndText;
+    public GameObject TimeRemainingText;
 
 
     // Start is called before the first frame update
@@ -24,6 +26,7 @@ public class UI : MonoBehaviour
         _scoreText = ScoreText.GetComponent<TextMeshProUGUI>();
         _speedText = SpeedText.GetComponent<TextMeshProUGUI>();
         _gameOverText = GameEndText.GetComponent<TextMeshProUGUI>();
+        _timeRemainingText = TimeRemainingText.GetComponent<TextMeshProUGUI>();
         var player = GameObject.FindWithTag("Player");
         if (player != null)
         {
@@ -50,6 +53,7 @@ public class UI : MonoBehaviour
                 currentSpeed = 0;
             }
             _speedText.SetText($"Speed: {currentSpeed:0.00}/{maxSpeed}");
+            _timeRemainingText.SetText($"Time Left: {_playerStatus.TimeRemaining:00.00}");
         }
         else
         {
