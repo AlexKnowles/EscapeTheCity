@@ -26,7 +26,14 @@ public class Collectable : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (gameObject.activeInHierarchy)
+        {
+            _gameObjectMesh.transform.rotation =
+                Quaternion.Lerp(
+                    _gameObjectMesh.transform.rotation,
+                    _gameObjectMesh.transform.rotation * Quaternion.AngleAxis(90, Vector3.up),
+                    Time.deltaTime);
+        }
     }
 
     public void Reset()
