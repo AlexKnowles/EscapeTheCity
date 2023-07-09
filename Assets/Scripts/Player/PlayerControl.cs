@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -30,6 +31,14 @@ public class PlayerControl : MonoBehaviour
     public float DriftFactor = 10f;
 
     public float TopSpeed = 20f;
+
+    public bool IsRightingSelf
+    {
+        get
+        {
+            return t > 0;
+        }
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -66,6 +75,36 @@ public class PlayerControl : MonoBehaviour
             _reversing = false;
             _braking = value.isPressed;
         }
+    }
+
+    public void OnRightSelf()
+    {
+        Debug.Log("Righting");
+        if (transform.up != Vector3.up && t == 0)
+        {
+            FixRotation();
+        }
+    }
+
+    private Quaternion targetRotation;
+    private float t = 0.0f;
+
+    void FixRotation()
+    {
+        float yRotation = transform.rotation.eulerAngles.y;
+        targetRotation = Quaternion.Euler(0, yRotation, 0);
+        StartCoroutine(LerpToUp());
+    }
+
+    IEnumerator LerpToUp()
+    {
+        while (t < 0.25f)
+        {
+            t += Time.deltaTime * 0.25f;
+            transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, t);
+            yield return null;
+        }
+        t = 0.0f;
     }
 
     public (float, float) GetSpeedData()

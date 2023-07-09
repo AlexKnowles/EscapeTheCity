@@ -10,6 +10,7 @@ public enum GameStatus
     Lost
 }
 
+[RequireComponent(typeof(PlayerControl))]
 public class PlayerStatus : MonoBehaviour
 {
     public bool IsPlaying
@@ -36,6 +37,18 @@ public class PlayerStatus : MonoBehaviour
         }
     }
 
+    public bool PlayerShouldUnwreckThemselves
+    {
+        get
+        {
+            float angleThreshold = 25f;
+            float yRotation = transform.rotation.eulerAngles.y;
+            var targetRotation = Quaternion.Euler(0, yRotation, 0);
+            float angle = Quaternion.Angle(targetRotation, transform.rotation);
+            return angle > angleThreshold && !_playerControl.IsRightingSelf;
+        }
+    }
+
     private GameStatus _gameStatus = GameStatus.Playing;
 
     private GameStatus? _pendingStatus;
@@ -45,6 +58,8 @@ public class PlayerStatus : MonoBehaviour
     public float Lifetime = 30f;
 
     private float _timeRemaining;
+
+    private PlayerControl _playerControl;
 
     public void Reset()
     {
@@ -94,6 +109,7 @@ public class PlayerStatus : MonoBehaviour
     void Start()
     {
         _timeRemaining = Lifetime;
+        _playerControl = GetComponent<PlayerControl>();
     }
 
     // Update is called once per frame

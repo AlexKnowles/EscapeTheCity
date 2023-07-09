@@ -54,6 +54,17 @@ public class UI : MonoBehaviour
             }
             _speedText.SetText($"Speed: {currentSpeed:0.00}/{maxSpeed}");
             _timeRemainingText.SetText($"Time Left: {_playerStatus.TimeRemaining:00.00}");
+
+            if (_playerStatus.PlayerShouldUnwreckThemselves)
+            {
+                _gameOverText.enabled = true;
+                _gameOverText.SetText($"Hit <space> to right yourself!");
+
+            }
+            else
+            {
+                _gameOverText.enabled = false;
+            }
         }
         else
         {
